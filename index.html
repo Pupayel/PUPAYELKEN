@@ -62,10 +62,10 @@ body{background:#fff;color:#0f2a4a}
 .nav-links a.active{color:var(--accent);opacity:1}
 .nav-links a svg{width:10px;height:10px;stroke:currentColor;fill:none;stroke-width:2.5;opacity:.7}
 
-/* DROPDOWN MENÜ */
+/* DROPDOWN */
 .dropdown{position:relative;height:100%;display:flex;align-items:center}
 .dropdown > a{padding:0 20px;height:100%;display:flex;align-items:center}
-.dropdown-menu{position:absolute;top:100%;left:0;background:#fff;border-radius:0 0 8px 8px;box-shadow:0 15px 35px rgba(15,42,74,.15);min-width:280px;opacity:0;visibility:hidden;transform:translateY(-10px);transition:.25s;padding:8px 0;z-index:200}
+.dropdown-menu{position:absolute;top:100%;left:0;background:#fff;border-radius:0 0 8px 8px;box-shadow:0 15px 35px rgba(15,42,74,.15);min-width:260px;opacity:0;visibility:hidden;transform:translateY(-10px);transition:.25s;padding:8px 0;z-index:200}
 .dropdown:hover .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}
 .dropdown-item{padding:12px 22px;color:#0f2a4a;font-size:13.5px;font-weight:600;cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:space-between;gap:10px}
 .dropdown-item:hover{background:#f7f9fb;color:var(--accent)}
@@ -120,12 +120,12 @@ body{background:#fff;color:#0f2a4a}
 
 /* ÜRÜNLER */
 .products{max-width:1360px;margin:0 auto;padding:40px 32px 60px}
-.section-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:22px}
 .section-head h2{font-size:22px;font-weight:900;color:#0f2a4a;letter-spacing:-.3px}
 .see-all{color:var(--accent);font-size:13px;font-weight:600;display:flex;align-items:center;gap:6px;cursor:pointer}
 .see-all svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.2}
 .filter-buttons{display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap}
-.filter-btn{padding:9px 18px;border:1.5px solid var(--border);background:#fff;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;color:#0f2a4a;transition:.2s}
+.filter-btn{padding:10px 22px;border:1.5px solid var(--border);background:#fff;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;color:#0f2a4a;transition:.2s}
 .filter-btn:hover{border-color:var(--accent);color:var(--accent)}
 .filter-btn.active{background:var(--primary);color:#fff;border-color:var(--primary)}
 .products-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
@@ -244,7 +244,14 @@ body{background:#fff;color:#0f2a4a}
     <div class="nav-cat"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>Tüm Kategoriler</div>
     <div class="nav-links" id="navLinks">
       <a data-cat="all" class="active" onclick="filterCat('all',this)">Ana Sayfa</a>
-      <a data-cat="kuzu-postu" onclick="filterCat('kuzu-postu',this)">Kuzu Postu</a>
+      <div class="dropdown">
+        <a>Polisaj Keçe Çeşitleri <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <div class="dropdown-menu">
+          <div class="dropdown-item" onclick="filterCat('polisaj-marine')">MARİNE GRUBU</div>
+          <div class="dropdown-item" onclick="filterCat('polisaj-oto')">OTO GRUBU</div>
+          <div class="dropdown-item" onclick="filterCat('polisaj-inox')">İNOX & PASLANMAZ GRUBU</div>
+        </div>
+      </div>
       <a data-cat="kece" onclick="filterCat('kece',this)">Keçe</a>
       <div class="dropdown">
         <a>Zımpara <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
@@ -330,7 +337,14 @@ body{background:#fff;color:#0f2a4a}
         <p>📍 İstanbul, Türkiye</p>
         <p>📞 +90 533 123 45 67</p>
       </div>
-      <div><h4>Kategoriler</h4><ul><li onclick="filterCat('kuzu-postu')">Kuzu Postu</li><li onclick="filterCat('kece')">Keçe</li><li onclick="filterCat('zimpara-yesil')">Yeşil Cırt & Velcro</li><li onclick="filterCat('zimpara-gold')">Gold Cırt & Velcro</li><li onclick="filterCat('pasta')">Pasta & Polisaj</li></ul></div>
+      <div><h4>Kategoriler</h4><ul>
+        <li onclick="filterCat('polisaj-marine')">MARİNE GRUBU</li>
+        <li onclick="filterCat('polisaj-oto')">OTO GRUBU</li>
+        <li onclick="filterCat('polisaj-inox')">İNOX & PASLANMAZ GRUBU</li>
+        <li onclick="filterCat('kece')">Keçe</li>
+        <li onclick="filterCat('zimpara-yesil')">Yeşil Cırt & Velcro</li>
+        <li onclick="filterCat('zimpara-gold')">Gold Cırt & Velcro</li>
+      </ul></div>
       <div><h4>Kurumsal</h4><ul><li>Hakkımızda</li><li>İletişim</li><li>Kargo & Teslimat</li><li>İade & Değişim</li></ul></div>
       <div><h4>Müşteri Hizmetleri</h4><ul><li>Sipariş Takibi</li><li>SSS</li><li>Toplu Sipariş</li><li>Bayilik</li></ul></div>
     </div>
@@ -352,7 +366,7 @@ const KUZU_POSTU = "kuzu-postu.jpg";
    KATEGORİLER
 ============================================ */
 const categories=[
-  {slug:"kuzu-postu",name:"Kuzu Postu",img:KUZU_POSTU},
+  {slug:"kuzu-postu",name:"Polisaj Keçe Çeşitleri",img:KUZU_POSTU},
   {slug:"kece",name:"Keçe",img:"https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&q=80"},
   {slug:"zimpara-yesil",name:"Zımpara",img:GREEN_SAND},
   {slug:"pasta",name:"Pasta & Polisaj",img:"https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=400&q=80"},
@@ -364,6 +378,16 @@ const categories=[
    ÜRÜNLER
 ============================================ */
 const products=[
+  // POLİSAJ KEÇE - MARİNE GRUBU
+  {id:30,name:"Kuzu Postu Polisaj Keçesi 150 mm",desc:"Marine grubu - Deniz araçları için",cat:"polisaj-marine",price:275,img:KUZU_POSTU},
+  {id:31,name:"Kuzu Postu Polisaj Keçesi 180 mm",desc:"Marine grubu - Profesyonel seri",cat:"polisaj-marine",price:325,img:KUZU_POSTU},
+  {id:32,name:"Kuzu Postu Polisaj Keçesi 230 mm",desc:"Marine grubu - Geniş yüzey polisajı",cat:"polisaj-marine",price:420,img:KUZU_POSTU},
+
+  // POLİSAJ KEÇE - OTO GRUBU
+  {id:33,name:"Kuzu Postu Polisaj Keçesi 150 mm",desc:"Oto grubu - Araç polisajı için",cat:"polisaj-oto",price:275,img:KUZU_POSTU},
+  {id:34,name:"Kuzu Postu Polisaj Keçesi 180 mm",desc:"Oto grubu - Profesyonel seri",cat:"polisaj-oto",price:325,img:KUZU_POSTU},
+  {id:35,name:"Kuzu Postu Polisaj Keçesi 230 mm",desc:"Oto grubu - Geniş yüzey polisajı",cat:"polisaj-oto",price:420,img:KUZU_POSTU},
+
   // ZIMPARA - YEŞİL CIRT & VELCRO (40P → 2000P)
   {id:1,name:"Yeşil Cırt & Velcro 40P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-yesil",price:18,kdv:true,img:GREEN_SAND},
   {id:2,name:"Yeşil Cırt & Velcro 60P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-yesil",price:18,kdv:true,img:GREEN_SAND},
@@ -398,11 +422,6 @@ const products=[
   {id:111,name:"Gold Cırt & Velcro 400P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-gold",price:16.5,kdv:true,img:GOLD_SAND},
   {id:112,name:"Gold Cırt & Velcro 600P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-gold",price:16.5,kdv:true,img:GOLD_SAND},
   {id:113,name:"Gold Cırt & Velcro 800P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-gold",price:16.5,kdv:true,img:GOLD_SAND},
-
-  // KUZU POSTU
-  {id:30,name:"Kuzu Postu Polisaj Keçesi 150 mm",desc:"Polisaj için ideal kalite",cat:"kuzu-postu",price:275,img:KUZU_POSTU},
-  {id:31,name:"Kuzu Postu Polisaj Keçesi 180 mm",desc:"Profesyonel seri",cat:"kuzu-postu",price:325,img:KUZU_POSTU},
-  {id:32,name:"Kuzu Postu Polisaj Keçesi 230 mm",desc:"Geniş yüzey polisajı",cat:"kuzu-postu",price:420,img:KUZU_POSTU},
 
   // KEÇE
   {id:40,name:"Sert Keçe 150 mm",desc:"Ağır çizik giderme",cat:"kece",price:89,img:"https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&q=80"},
@@ -439,7 +458,7 @@ function renderCategories(){
 function renderProducts(list){
   const grid=document.getElementById('productsGrid');
   if(!list.length){
-    grid.innerHTML='<p style="grid-column:1/-1;text-align:center;padding:40px;color:#999;">Ürün bulunamadı.</p>';
+    grid.innerHTML='<p style="grid-column:1/-1;text-align:center;padding:40px;color:#999;">Bu grupta henüz ürün bulunmuyor.</p>';
     return;
   }
   grid.innerHTML=list.map(p=>`
@@ -465,17 +484,37 @@ function filterCat(cat,el){
   if(el)el.classList.add('active');
   const titles={
     all:'Yeni Gelen Ürünler',
-    'kuzu-postu':'Kuzu Postu Ürünleri',
+    'polisaj-marine':'Polisaj Keçe - MARİNE GRUBU',
+    'polisaj-oto':'Polisaj Keçe - OTO GRUBU',
+    'polisaj-inox':'Polisaj Keçe - İNOX & PASLANMAZ GRUBU',
+    'kuzu-postu':'Polisaj Keçe Çeşitleri',
     kece:'Keçe Ürünleri',
-    'zimpara-yesil':'Yeşil Cırt & Velcro Zımpara Ürünleri (40P - 2000P)',
-    'zimpara-gold':'Gold Cırt & Velcro Zımpara Ürünleri (40P - 800P)',
+    'zimpara-yesil':'Yeşil Cırt & Velcro Zımpara Ürünleri',
+    'zimpara-gold':'Gold Cırt & Velcro Zımpara Ürünleri',
     pasta:'Pasta & Polisaj Ürünleri',
     flap:'Flap Disk Ürünleri',
     aksesuar:'Aksesuar Ürünleri'
   };
   document.getElementById('sectionTitle').textContent=titles[cat]||'Ürünler';
+
+  // Filtre butonları - sadece polisaj grubu için
+  const filterBox=document.getElementById('filterButtons');
+  if(cat==='polisaj-marine'||cat==='polisaj-oto'||cat==='polisaj-inox'||cat==='kuzu-postu'){
+    filterBox.style.display='flex';
+    filterBox.innerHTML=`
+      <button class="filter-btn ${cat==='kuzu-postu'?'active':''}" onclick="filterCat('kuzu-postu')">Tümü</button>
+      <button class="filter-btn ${cat==='polisaj-marine'?'active':''}" onclick="filterCat('polisaj-marine')">MARİNE GRUBU</button>
+      <button class="filter-btn ${cat==='polisaj-oto'?'active':''}" onclick="filterCat('polisaj-oto')">OTO GRUBU</button>
+      <button class="filter-btn ${cat==='polisaj-inox'?'active':''}" onclick="filterCat('polisaj-inox')">İNOX & PASLANMAZ GRUBU</button>
+    `;
+  }else{
+    filterBox.style.display='none';
+    filterBox.innerHTML='';
+  }
+
   let filtered;
   if(cat==='all') filtered=products.slice(0,12);
+  else if(cat==='kuzu-postu') filtered=products.filter(p=>p.cat==='polisaj-marine'||p.cat==='polisaj-oto'||p.cat==='polisaj-inox');
   else filtered=products.filter(p=>p.cat===cat);
   renderProducts(filtered);
   document.getElementById('productsSection').scrollIntoView({behavior:'smooth',block:'start'});
@@ -496,6 +535,7 @@ function performSearch(){
   if(!q){filterCat('all');return;}
   const results=products.filter(p=>p.name.toLowerCase().includes(q)||p.desc.toLowerCase().includes(q));
   document.getElementById('sectionTitle').textContent=`"${q}" için ${results.length} sonuç`;
+  document.getElementById('filterButtons').style.display='none';
   renderProducts(results);
   document.getElementById('productsSection').scrollIntoView({behavior:'smooth'});
 }
