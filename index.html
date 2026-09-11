@@ -265,7 +265,13 @@ body{background:#fff;color:#0f2a4a}
           </div>
         </div>
       </div>
-      <a data-cat="pasta" onclick="filterCat('pasta',this)">Pasta & Polisaj <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
+      <div class="dropdown">
+        <a>Pasta & Polisaj <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <div class="dropdown-menu">
+          <div class="dropdown-item" onclick="filterCat('pasta-marine')">MARİNE GRUBU</div>
+          <div class="dropdown-item" onclick="filterCat('pasta-oto')">OTO GRUBU</div>
+        </div>
+      </div>
       <a onclick="showToast('Aksesuarlar yakında')">Aksesuarlar <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
       <a onclick="showToast('Hakkımızda sayfası')">Hakkımızda</a>
       <a onclick="showToast('İletişim sayfası')">İletişim</a>
@@ -338,12 +344,12 @@ body{background:#fff;color:#0f2a4a}
         <p>📞 +90 533 123 45 67</p>
       </div>
       <div><h4>Kategoriler</h4><ul>
-        <li onclick="filterCat('polisaj-marine')">MARİNE GRUBU</li>
-        <li onclick="filterCat('polisaj-oto')">OTO GRUBU</li>
-        <li onclick="filterCat('polisaj-inox')">İNOX & PASLANMAZ GRUBU</li>
-        <li onclick="filterCat('kece')">Keçe</li>
+        <li onclick="filterCat('polisaj-marine')">Polisaj Keçe - Marine</li>
+        <li onclick="filterCat('polisaj-oto')">Polisaj Keçe - Oto</li>
         <li onclick="filterCat('zimpara-yesil')">Yeşil Cırt & Velcro</li>
         <li onclick="filterCat('zimpara-gold')">Gold Cırt & Velcro</li>
+        <li onclick="filterCat('pasta-marine')">Pasta - Marine</li>
+        <li onclick="filterCat('pasta-oto')">Pasta - Oto</li>
       </ul></div>
       <div><h4>Kurumsal</h4><ul><li>Hakkımızda</li><li>İletişim</li><li>Kargo & Teslimat</li><li>İade & Değişim</li></ul></div>
       <div><h4>Müşteri Hizmetleri</h4><ul><li>Sipariş Takibi</li><li>SSS</li><li>Toplu Sipariş</li><li>Bayilik</li></ul></div>
@@ -370,7 +376,7 @@ const categories=[
   {slug:"kuzu-postu",name:"Polisaj Keçe Çeşitleri",img:KUZU_POSTU},
   {slug:"kece",name:"Keçe",img:"https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&q=80"},
   {slug:"zimpara-yesil",name:"Zımpara",img:GREEN_SAND},
-  {slug:"pasta",name:"Pasta & Polisaj",img:"https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=400&q=80"},
+  {slug:"pasta-marine",name:"Pasta & Polisaj",img:"https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=400&q=80"},
   {slug:"flap",name:"Flap Disk",img:"https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&q=80"},
   {slug:"aksesuar",name:"Aksesuarlar",img:"https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=400&q=80"}
 ];
@@ -396,6 +402,15 @@ const products=[
   {id:39,name:"Beyaz Kuzu Postu Polisaj Keçesi 150 mm",desc:"Oto grubu - Beyaz keçe",cat:"polisaj-oto",price:275,img:BEYAZ_KUZU},
   {id:43,name:"Beyaz Kuzu Postu Polisaj Keçesi 180 mm",desc:"Oto grubu - Beyaz keçe",cat:"polisaj-oto",price:325,img:BEYAZ_KUZU},
   {id:44,name:"Beyaz Kuzu Postu Polisaj Keçesi 230 mm",desc:"Oto grubu - Beyaz keçe",cat:"polisaj-oto",price:420,img:BEYAZ_KUZU},
+
+  // PASTA & POLİSAJ - MARİNE GRUBU
+  {id:80,name:"Jelkot Pastası 5 kg",desc:"Marine grubu - Profesyonel jelkot pastası 5 kg",cat:"pasta-marine",price:6500,kdv:true,img:"https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=400&q=80"},
+  {id:81,name:"Jelkot Pastası 1.2 kg",desc:"Marine grubu - Profesyonel jelkot pastası 1.2 kg",cat:"pasta-marine",price:1750,kdv:true,img:"https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=400&q=80"},
+
+  // PASTA & POLİSAJ - OTO GRUBU (fiyatsız)
+  {id:50,name:"Pasta Seti",desc:"Oto grubu - Profesyonel sonuç",cat:"pasta-oto",img:"https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=400&q=80"},
+  {id:51,name:"Hare Giderici Pasta 500ml",desc:"Oto grubu - İnce çizik giderici",cat:"pasta-oto",img:"https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=400&q=80"},
+  {id:52,name:"Seramik Kaplama Cila",desc:"Oto grubu - 9H sertlik koruma",cat:"pasta-oto",img:"https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=400&q=80&sat=-10"},
 
   // ZIMPARA - YEŞİL CIRT & VELCRO
   {id:1,name:"Yeşil Cırt & Velcro 40P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-yesil",price:18,kdv:true,img:GREEN_SAND},
@@ -436,11 +451,6 @@ const products=[
   {id:40,name:"Sert Keçe 150 mm",desc:"Ağır çizik giderme",cat:"kece",price:89,img:"https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&q=80"},
   {id:41,name:"Yumuşak Keçe 180 mm",desc:"Son kat parlatma",cat:"kece",price:110,img:"https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&q=80"},
   {id:42,name:"Keçe Disk 125 mm",desc:"Yüksek yoğunluklu keçe",cat:"kece",price:75,img:"https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&q=80&sat=-20"},
-
-  // PASTA & POLİSAJ
-  {id:50,name:"Pasta Seti",desc:"Profesyonel sonuç",cat:"pasta",price:420,img:"https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=400&q=80"},
-  {id:51,name:"Hare Giderici Pasta 500ml",desc:"İnce çizik giderici",cat:"pasta",price:175,img:"https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=400&q=80"},
-  {id:52,name:"Seramik Kaplama Cila",desc:"9H sertlik koruma",cat:"pasta",price:420,img:"https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=400&q=80&sat=-10"},
 
   // FLAP DİSK
   {id:60,name:"Flap Disk 115 mm",desc:"Metal yüzeyler için",cat:"flap",price:135,img:"https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&q=80"},
@@ -500,7 +510,8 @@ function filterCat(cat,el){
     kece:'Keçe Ürünleri',
     'zimpara-yesil':'Yeşil Cırt & Velcro Zımpara Ürünleri',
     'zimpara-gold':'Gold Cırt & Velcro Zımpara Ürünleri',
-    pasta:'Pasta & Polisaj Ürünleri',
+    'pasta-marine':'Pasta & Polisaj - MARİNE GRUBU',
+    'pasta-oto':'Pasta & Polisaj - OTO GRUBU',
     flap:'Flap Disk Ürünleri',
     aksesuar:'Aksesuar Ürünleri'
   };
@@ -513,7 +524,13 @@ function filterCat(cat,el){
       <button class="filter-btn ${cat==='kuzu-postu'?'active':''}" onclick="filterCat('kuzu-postu')">Tümü</button>
       <button class="filter-btn ${cat==='polisaj-marine'?'active':''}" onclick="filterCat('polisaj-marine')">MARİNE GRUBU</button>
       <button class="filter-btn ${cat==='polisaj-oto'?'active':''}" onclick="filterCat('polisaj-oto')">OTO GRUBU</button>
-      <button class="filter-btn ${cat==='polisaj-inox'?'active':''}" onclick="filterCat('polisaj-inox')">İNOX & PASLANMAZ GRUBU</button>
+      <button class="filter-btn ${cat==='polisaj-inox'?'active':''}" onclick="filterCat('polisaj-inox')">İNOX & PASLANMAZ</button>
+    `;
+  }else if(cat==='pasta-marine'||cat==='pasta-oto'){
+    filterBox.style.display='flex';
+    filterBox.innerHTML=`
+      <button class="filter-btn ${cat==='pasta-marine'?'active':''}" onclick="filterCat('pasta-marine')">MARİNE GRUBU</button>
+      <button class="filter-btn ${cat==='pasta-oto'?'active':''}" onclick="filterCat('pasta-oto')">OTO GRUBU</button>
     `;
   }else{
     filterBox.style.display='none';
