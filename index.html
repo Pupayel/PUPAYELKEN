@@ -16,12 +16,27 @@ body{background:#fff;color:#0f2a4a}
 .topbar-left{display:flex;gap:32px;align-items:center}
 .topbar-left>div{display:flex;align-items:center;gap:8px;opacity:.92}
 .topbar-left>div svg{width:15px;height:15px;stroke:#fff;fill:none;stroke-width:1.8}
-.topbar-right{display:flex;align-items:center;gap:24px}
-.topbar-right a{color:#fff;text-decoration:none;display:flex;align-items:center;gap:8px;opacity:.95;font-size:12.5px;cursor:pointer}
-.topbar-right a svg{width:15px;height:15px;stroke:#fff;fill:none;stroke-width:1.8}
+.topbar-right{display:flex;align-items:center;gap:24px;position:relative}
+.topbar-right a{color:#fff;text-decoration:none;display:flex;align-items:center;gap:8px;opacity:.95;font-size:12.5px;cursor:pointer;transition:.2s}
+.topbar-right a:hover{color:#f58220}
+.topbar-right a svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8}
 .topbar-cart{display:flex;align-items:center;gap:8px;padding-left:22px;border-left:1px solid rgba(255,255,255,.18);cursor:pointer;font-size:12.5px}
 .topbar-cart svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:1.8}
 .topbar-cart .count{color:#f58220;font-weight:700}
+
+/* USER DROPDOWN */
+.user-menu{position:relative}
+.user-menu > a{color:#fff;display:flex;align-items:center;gap:8px;font-size:12.5px;cursor:pointer;opacity:.95}
+.user-menu > a:hover{color:#f58220}
+.user-dropdown{position:absolute;top:100%;right:0;background:#fff;border-radius:8px;box-shadow:0 15px 35px rgba(15,42,74,.15);min-width:220px;opacity:0;visibility:hidden;transform:translateY(-5px);transition:.25s;padding:8px 0;z-index:200;margin-top:10px;border:1px solid var(--border)}
+.user-menu:hover .user-dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+.user-dropdown::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px}
+.user-dropdown-item{padding:12px 20px;color:#0f2a4a;font-size:13.5px;font-weight:500;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:10px}
+.user-dropdown-item:hover{background:#f7f9fb;color:var(--accent)}
+.user-dropdown-item svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8}
+.user-dropdown-item.danger{color:#e74c3c}
+.user-dropdown-item.danger:hover{background:#fff5f5;color:#c0392b}
+.user-dropdown-divider{height:1px;background:var(--border);margin:6px 0}
 
 /* HEADER */
 .header{background:#fff;padding:22px 0}
@@ -62,7 +77,7 @@ body{background:#fff;color:#0f2a4a}
 .nav-links > a.active{color:var(--accent);opacity:1}
 .nav-links > a svg{width:10px;height:10px;stroke:currentColor;fill:none;stroke-width:2.5;opacity:.7}
 
-/* DROPDOWN - Ana */
+/* DROPDOWN */
 .dropdown{position:relative;height:100%;display:flex;align-items:center}
 .dropdown > a{padding:0 20px;height:100%;display:flex;align-items:center;gap:6px;color:#fff;font-size:13.5px;font-weight:500;opacity:.92;cursor:pointer;transition:.2s}
 .dropdown:hover > a{opacity:1;color:var(--accent)}
@@ -72,22 +87,12 @@ body{background:#fff;color:#0f2a4a}
 .dropdown-item{padding:12px 22px;color:#0f2a4a;font-size:13.5px;font-weight:600;cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:space-between;gap:10px;white-space:nowrap}
 .dropdown-item:hover{background:#f7f9fb;color:var(--accent)}
 .dropdown-item svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.5;flex-shrink:0}
-
-/* DROPDOWN - Alt (2. seviye) */
 .dropdown-sub{position:relative}
 .dropdown-sub > .dropdown-item{width:100%}
 .dropdown-sub .submenu{position:absolute;left:100%;top:0;background:#fff;border-radius:8px;box-shadow:0 15px 35px rgba(15,42,74,.15);min-width:220px;opacity:0;visibility:hidden;transform:translateX(-10px);transition:.25s;padding:8px 0;z-index:210}
 .dropdown-sub:hover > .submenu{opacity:1;visibility:visible;transform:translateX(0)}
 .dropdown-sub:hover{background:#f7f9fb}
 .dropdown-sub:hover > .dropdown-item{color:var(--accent);background:#f7f9fb}
-
-/* DROPDOWN - 3. seviye */
-.dropdown-sub-sub{position:relative}
-.dropdown-sub-sub > .dropdown-item{width:100%}
-.dropdown-sub-sub .submenu-3{position:absolute;left:100%;top:0;background:#fff;border-radius:8px;box-shadow:0 15px 35px rgba(15,42,74,.15);min-width:200px;opacity:0;visibility:hidden;transform:translateX(-10px);transition:.25s;padding:8px 0;z-index:220}
-.dropdown-sub-sub:hover > .submenu-3{opacity:1;visibility:visible;transform:translateX(0)}
-.dropdown-sub-sub:hover{background:#f7f9fb}
-.dropdown-sub-sub:hover > .dropdown-item{color:var(--accent);background:#f7f9fb}
 
 /* HERO */
 .hero{position:relative;height:480px;overflow:hidden;background:#0f2a4a}
@@ -153,6 +158,35 @@ body{background:#fff;color:#0f2a4a}
 .product-info .price{font-size:14px;font-weight:800;color:#f58220;margin-top:10px;letter-spacing:-.2px}
 .product-info .price .kdv{font-size:11px;font-weight:600;color:#7c8794;margin-left:2px;letter-spacing:0}
 
+/* LOGIN MODAL */
+.login-overlay{position:fixed;inset:0;background:rgba(15,32,53,.75);display:none;align-items:center;justify-content:center;padding:20px;z-index:500;backdrop-filter:blur(4px);overflow-y:auto}
+.login-overlay.open{display:flex}
+.login-box{background:#fff;border-radius:16px;max-width:460px;width:100%;padding:40px 36px;position:relative;animation:fadeIn .35s;max-height:92vh;overflow-y:auto}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.login-close{position:absolute;top:14px;right:14px;background:#f4f6f9;border:none;width:36px;height:36px;border-radius:50%;font-size:18px;cursor:pointer;transition:.2s;color:#0f2a4a}
+.login-close:hover{background:var(--accent);color:#fff;transform:rotate(90deg)}
+.login-logo{text-align:center;margin-bottom:24px}
+.login-logo h2{font-size:24px;font-weight:900;color:var(--primary);margin-bottom:6px}
+.login-logo p{font-size:13px;color:var(--muted)}
+.login-tabs{display:flex;background:#f4f6f9;border-radius:8px;padding:4px;margin-bottom:24px}
+.login-tab{flex:1;padding:11px;text-align:center;font-size:13.5px;font-weight:600;cursor:pointer;border-radius:6px;transition:.2s;color:var(--muted)}
+.login-tab.active{background:#fff;color:var(--primary);box-shadow:0 2px 6px rgba(15,42,74,.08)}
+.login-form{display:none}
+.login-form.active{display:block}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:12px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.form-group input,.form-group textarea{width:100%;padding:13px 16px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;transition:.2s;font-family:inherit;outline:none;background:#fafbfc}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--accent);background:#fff;box-shadow:0 0 0 3px rgba(245,130,32,.1)}
+.form-group textarea{resize:vertical;min-height:80px}
+.login-submit{width:100%;padding:15px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:800;cursor:pointer;transition:.2s;margin-top:6px}
+.login-submit:hover{background:var(--accent-hover)}
+.login-divider{display:flex;align-items:center;gap:14px;margin:22px 0;color:var(--muted);font-size:12px}
+.login-divider::before,.login-divider::after{content:'';flex:1;height:1px;background:var(--border)}
+.guest-btn{width:100%;padding:14px;background:#fff;color:var(--primary);border:1.5px solid var(--border);border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:center;gap:8px}
+.guest-btn:hover{border-color:var(--primary);background:#f7f9fb}
+.guest-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2}
+.login-info{margin-top:18px;padding:12px 16px;background:#f0f7ff;border-left:3px solid #3b82f6;border-radius:6px;font-size:12px;color:#1e40af;line-height:1.5}
+
 /* FOOTER */
 .footer{background:#0a1e36;color:#fff;padding:60px 0 0;margin-top:60px}
 .footer-inner{max-width:1360px;margin:0 auto;padding:0 32px}
@@ -170,6 +204,8 @@ body{background:#fff;color:#0f2a4a}
 /* TOAST */
 .toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(80px);background:#0f2a4a;color:#fff;padding:14px 26px;border-radius:8px;font-size:13.5px;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.25);opacity:0;z-index:999;transition:.35s;pointer-events:none}
 .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+.toast.success{background:#27ae60}
+.toast.error{background:#e74c3c}
 
 /* RESPONSIVE */
 @media(max-width:1200px){
@@ -197,6 +233,7 @@ body{background:#fff;color:#0f2a4a}
 .trust-inner{grid-template-columns:1fr}
 .footer-top{grid-template-columns:1fr}
 .nav-links > a{padding:0 12px;font-size:12px}
+.login-box{padding:30px 24px}
 }
 </style>
 </head>
@@ -210,12 +247,8 @@ body{background:#fff;color:#0f2a4a}
       <div><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Güvenli Alışveriş</div>
       <div><svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>7/24 Destek</div>
     </div>
-    <div class="topbar-right">
-      <a onclick="showToast('Giriş sayfası yakında')"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v2"/></svg>Giriş Yap / Üye Ol</a>
-      <div class="topbar-cart" onclick="showToast('Sepet yakında aktif')">
-        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
-        <span class="count">0</span><span style="font-weight:600">0,00 TL</span>
-      </div>
+    <div class="topbar-right" id="topbarRight">
+      <!-- JS ile doldurulur -->
     </div>
   </div>
 </div>
@@ -391,6 +424,62 @@ body{background:#fff;color:#0f2a4a}
   </div>
 </footer>
 
+<!-- GİRİŞ MODAL -->
+<div class="login-overlay" id="loginOverlay">
+  <div class="login-box">
+    <button class="login-close" onclick="closeLogin()">✕</button>
+    <div class="login-logo">
+      <h2>PUPA YELKEN</h2>
+      <p>Hesabınıza giriş yapın veya yeni hesap oluşturun</p>
+    </div>
+    
+    <div class="login-tabs">
+      <div class="login-tab active" onclick="switchLoginTab('login')">Giriş Yap</div>
+      <div class="login-tab" onclick="switchLoginTab('register')">Üye Ol</div>
+    </div>
+    
+    <!-- GİRİŞ FORMU -->
+    <div class="login-form active" id="formLogin">
+      <div class="form-group">
+        <label>📱 Telefon Numarası</label>
+        <input type="tel" id="loginPhone" placeholder="05XX XXX XX XX" maxlength="11" oninput="formatPhone(this)">
+      </div>
+      <div class="form-group">
+        <label>🔒 Şifre</label>
+        <input type="password" id="loginPassword" placeholder="••••••••">
+      </div>
+      <button class="login-submit" onclick="doLogin()">Giriş Yap</button>
+    </div>
+    
+    <!-- ÜYE OL FORMU -->
+    <div class="login-form" id="formRegister">
+      <div class="form-group">
+        <label>📱 Telefon Numarası</label>
+        <input type="tel" id="registerPhone" placeholder="05XX XXX XX XX" maxlength="11" oninput="formatPhone(this)">
+      </div>
+      <div class="form-group">
+        <label>📍 Kargo Adresi</label>
+        <textarea id="registerAddress" placeholder="İl, ilçe, mahalle, sokak, no..."></textarea>
+      </div>
+      <div class="form-group">
+        <label>🔒 Şifre Belirleyin</label>
+        <input type="password" id="registerPassword" placeholder="En az 4 karakter">
+      </div>
+      <button class="login-submit" onclick="doRegister()">Üye Ol</button>
+    </div>
+    
+    <div class="login-divider">veya</div>
+    
+    <button class="guest-btn" onclick="continueAsGuest()">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v2"/></svg>
+      Üye Olmadan Devam Et
+    </button>
+    <div class="login-info">
+      ℹ️ Üye olmadan da sipariş verebilirsiniz. Sipariş sırasında telefon ve adres bilgileriniz alınacaktır.
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
@@ -487,37 +576,31 @@ const products=[
   {id:200,name:"Flap Disk 115x22 AO P40",desc:"Alüminyum Oksit - P40 - Sorunuz",cat:"flap-115-ao",img:FLAP_AO},
   {id:201,name:"Flap Disk 115x22 AO P60",desc:"Alüminyum Oksit - P60 - Sorunuz",cat:"flap-115-ao",img:FLAP_AO},
   {id:202,name:"Flap Disk 115x22 AO P80",desc:"Alüminyum Oksit - P80 - Sorunuz",cat:"flap-115-ao",img:FLAP_AO},
-  // FLAP 115x22 - ZR
   {id:203,name:"Flap Disk 115x22 ZR P40",desc:"Zirkonyum - P40 - Sorunuz",cat:"flap-115-zr",img:FLAP_ZR},
   {id:204,name:"Flap Disk 115x22 ZR P60",desc:"Zirkonyum - P60 - Sorunuz",cat:"flap-115-zr",img:FLAP_ZR},
   {id:205,name:"Flap Disk 115x22 ZR P80",desc:"Zirkonyum - P80 - Sorunuz",cat:"flap-115-zr",img:FLAP_ZR},
-  // FLAP 115x22 - CR
   {id:206,name:"Flap Disk 115x22 CR P40",desc:"Seramik - P40 - Sorunuz",cat:"flap-115-cr",img:FLAP_CR},
   {id:207,name:"Flap Disk 115x22 CR P60",desc:"Seramik - P60 - Sorunuz",cat:"flap-115-cr",img:FLAP_CR},
   {id:208,name:"Flap Disk 115x22 CR P80",desc:"Seramik - P80 - Sorunuz",cat:"flap-115-cr",img:FLAP_CR},
 
-  // FLAP 125x22 - AO
+  // FLAP 125x22
   {id:210,name:"Flap Disk 125x22 AO P40",desc:"Alüminyum Oksit - P40 - Sorunuz",cat:"flap-125-ao",img:FLAP_AO},
   {id:211,name:"Flap Disk 125x22 AO P60",desc:"Alüminyum Oksit - P60 - Sorunuz",cat:"flap-125-ao",img:FLAP_AO},
   {id:212,name:"Flap Disk 125x22 AO P80",desc:"Alüminyum Oksit - P80 - Sorunuz",cat:"flap-125-ao",img:FLAP_AO},
-  // FLAP 125x22 - ZR
   {id:213,name:"Flap Disk 125x22 ZR P40",desc:"Zirkonyum - P40 - Sorunuz",cat:"flap-125-zr",img:FLAP_ZR},
   {id:214,name:"Flap Disk 125x22 ZR P60",desc:"Zirkonyum - P60 - Sorunuz",cat:"flap-125-zr",img:FLAP_ZR},
   {id:215,name:"Flap Disk 125x22 ZR P80",desc:"Zirkonyum - P80 - Sorunuz",cat:"flap-125-zr",img:FLAP_ZR},
-  // FLAP 125x22 - CR
   {id:216,name:"Flap Disk 125x22 CR P40",desc:"Seramik - P40 - Sorunuz",cat:"flap-125-cr",img:FLAP_CR},
   {id:217,name:"Flap Disk 125x22 CR P60",desc:"Seramik - P60 - Sorunuz",cat:"flap-125-cr",img:FLAP_CR},
   {id:218,name:"Flap Disk 125x22 CR P80",desc:"Seramik - P80 - Sorunuz",cat:"flap-125-cr",img:FLAP_CR},
 
-  // FLAP 180x22 - AO
+  // FLAP 180x22
   {id:220,name:"Flap Disk 180x22 AO P40",desc:"Alüminyum Oksit - P40 - Sorunuz",cat:"flap-180-ao",img:FLAP_AO},
   {id:221,name:"Flap Disk 180x22 AO P60",desc:"Alüminyum Oksit - P60 - Sorunuz",cat:"flap-180-ao",img:FLAP_AO},
   {id:222,name:"Flap Disk 180x22 AO P80",desc:"Alüminyum Oksit - P80 - Sorunuz",cat:"flap-180-ao",img:FLAP_AO},
-  // FLAP 180x22 - ZR
   {id:223,name:"Flap Disk 180x22 ZR P40",desc:"Zirkonyum - P40 - Sorunuz",cat:"flap-180-zr",img:FLAP_ZR},
   {id:224,name:"Flap Disk 180x22 ZR P60",desc:"Zirkonyum - P60 - Sorunuz",cat:"flap-180-zr",img:FLAP_ZR},
   {id:225,name:"Flap Disk 180x22 ZR P80",desc:"Zirkonyum - P80 - Sorunuz",cat:"flap-180-zr",img:FLAP_ZR},
-  // FLAP 180x22 - CR
   {id:226,name:"Flap Disk 180x22 CR P40",desc:"Seramik - P40 - Sorunuz",cat:"flap-180-cr",img:FLAP_CR},
   {id:227,name:"Flap Disk 180x22 CR P60",desc:"Seramik - P60 - Sorunuz",cat:"flap-180-cr",img:FLAP_CR},
   {id:228,name:"Flap Disk 180x22 CR P80",desc:"Seramik - P80 - Sorunuz",cat:"flap-180-cr",img:FLAP_CR},
@@ -531,6 +614,217 @@ const products=[
   {id:70,name:"Polisaj Makinesi 1200W",desc:"Profesyonel seri",cat:"aksesuar",price:1890,img:"https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=400&q=80"},
   {id:71,name:"Polisaj Pedi Seti",desc:"5 parça set",cat:"aksesuar",price:320,img:"https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=400&q=80&sat=-15"}
 ];
+
+/* ============================================
+   KULLANICI SİSTEMİ (localStorage)
+============================================ */
+let currentUser = JSON.parse(localStorage.getItem('pupaUser')) || null;
+
+function saveUsers(users){
+  localStorage.setItem('pupaUsers', JSON.stringify(users));
+}
+
+function getUsers(){
+  return JSON.parse(localStorage.getItem('pupaUsers')) || [];
+}
+
+/* ============================================
+   TOPBAR RENDER (Kullanıcı durumuna göre)
+============================================ */
+function renderTopbar(){
+  const el = document.getElementById('topbarRight');
+  if(currentUser){
+    // Giriş yapmış
+    el.innerHTML = `
+      <div class="user-menu">
+        <a>
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v2"/></svg>
+          Merhaba, ${currentUser.phone.slice(-4).padStart(7,'*')}
+          <svg viewBox="0 0 24 24" style="width:10px;height:10px"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="user-dropdown">
+          <div class="user-dropdown-item" onclick="showToast('Hesabım sayfası yakında')">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v2"/></svg>
+            Hesabım
+          </div>
+          <div class="user-dropdown-item" onclick="showToast('Siparişlerim yakında')">
+            <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            Siparişlerim
+          </div>
+          <div class="user-dropdown-item" onclick="showAddress()">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Adres Bilgilerim
+          </div>
+          <div class="user-dropdown-divider"></div>
+          <div class="user-dropdown-item danger" onclick="doLogout()">
+            <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            Çıkış Yap
+          </div>
+        </div>
+      </div>
+      <div class="topbar-cart" onclick="showToast('Sepet yakında aktif')">
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+        <span class="count">0</span><span style="font-weight:600">0,00 TL</span>
+      </div>
+    `;
+  }else if(currentUser === 'guest'){
+    // Misafir
+    el.innerHTML = `
+      <a onclick="openLogin()">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v2"/></svg>
+        Misafir Olarak Devam
+      </a>
+      <div class="topbar-cart" onclick="showToast('Sepet yakında aktif')">
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+        <span class="count">0</span><span style="font-weight:600">0,00 TL</span>
+      </div>
+    `;
+  }else{
+    // Giriş yapmamış
+    el.innerHTML = `
+      <a onclick="openLogin()">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v2"/></svg>
+        Giriş Yap / Üye Ol
+      </a>
+      <div class="topbar-cart" onclick="showToast('Sepet yakında aktif')">
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+        <span class="count">0</span><span style="font-weight:600">0,00 TL</span>
+      </div>
+    `;
+  }
+}
+
+/* ============================================
+   LOGIN MODAL FONKSİYONLARI
+============================================ */
+function openLogin(){
+  document.getElementById('loginOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLogin(){
+  document.getElementById('loginOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+  // Formları temizle
+  ['loginPhone','loginPassword','registerPhone','registerAddress','registerPassword'].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el) el.value = '';
+  });
+}
+
+function switchLoginTab(tab){
+  document.querySelectorAll('.login-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.login-form').forEach(f=>f.classList.remove('active'));
+  if(tab === 'login'){
+    document.querySelectorAll('.login-tab')[0].classList.add('active');
+    document.getElementById('formLogin').classList.add('active');
+  }else{
+    document.querySelectorAll('.login-tab')[1].classList.add('active');
+    document.getElementById('formRegister').classList.add('active');
+  }
+}
+
+function formatPhone(input){
+  let v = input.value.replace(/\D/g,'').slice(0,11);
+  if(v.length > 0 && v[0] !== '0') v = '0' + v;
+  input.value = v;
+}
+
+function doLogin(){
+  const phone = document.getElementById('loginPhone').value.trim();
+  const pass = document.getElementById('loginPassword').value;
+  
+  if(phone.length !== 11){
+    showToast('Lütfen 11 haneli telefon numaranızı girin','error');
+    return;
+  }
+  if(!pass){
+    showToast('Lütfen şifrenizi girin','error');
+    return;
+  }
+  
+  const users = getUsers();
+  const user = users.find(u => u.phone === phone);
+  
+  if(!user){
+    showToast('Bu telefon numarası kayıtlı değil','error');
+    return;
+  }
+  if(user.password !== pass){
+    showToast('Şifre hatalı','error');
+    return;
+  }
+  
+  currentUser = user;
+  localStorage.setItem('pupaUser', JSON.stringify(user));
+  closeLogin();
+  renderTopbar();
+  showToast(`✅ Hoş geldiniz!`,'success');
+}
+
+function doRegister(){
+  const phone = document.getElementById('registerPhone').value.trim();
+  const address = document.getElementById('registerAddress').value.trim();
+  const pass = document.getElementById('registerPassword').value;
+  
+  if(phone.length !== 11){
+    showToast('Lütfen 11 haneli telefon numaranızı girin','error');
+    return;
+  }
+  if(!address){
+    showToast('Lütfen kargo adresinizi girin','error');
+    return;
+  }
+  if(pass.length < 4){
+    showToast('Şifre en az 4 karakter olmalı','error');
+    return;
+  }
+  
+  const users = getUsers();
+  if(users.find(u => u.phone === phone)){
+    showToast('Bu telefon numarası zaten kayıtlı','error');
+    return;
+  }
+  
+  const newUser = {
+    phone,
+    address,
+    password: pass,
+    createdAt: new Date().toISOString()
+  };
+  
+  users.push(newUser);
+  saveUsers(users);
+  
+  currentUser = newUser;
+  localStorage.setItem('pupaUser', JSON.stringify(newUser));
+  closeLogin();
+  renderTopbar();
+  showToast('✅ Üyeliğiniz oluşturuldu!','success');
+}
+
+function continueAsGuest(){
+  currentUser = 'guest';
+  localStorage.setItem('pupaUser', JSON.stringify('guest'));
+  closeLogin();
+  renderTopbar();
+  showToast('Misafir olarak devam ediyorsunuz','info');
+}
+
+function doLogout(){
+  currentUser = null;
+  localStorage.removeItem('pupaUser');
+  renderTopbar();
+  showToast('Çıkış yapıldı','info');
+}
+
+function showAddress(){
+  if(currentUser && currentUser.address){
+    showToast('📍 ' + currentUser.address);
+  }else{
+    showToast('Adres bilgisi bulunamadı','error');
+  }
+}
 
 /* ============================================
    RENDER
@@ -649,19 +943,31 @@ function performSearch(){
 /* ============================================
    TOAST
 ============================================ */
-function showToast(msg){
+function showToast(msg,type='info'){
   const t=document.getElementById('toast');
   t.textContent=msg;
-  t.className='toast';
+  t.className='toast '+type;
   setTimeout(()=>t.classList.add('show'),10);
   setTimeout(()=>t.classList.remove('show'),2500);
 }
+
+/* ============================================
+   OVERLAY DIŞINA TIKLAYINCA KAPAT
+============================================ */
+document.getElementById('loginOverlay').addEventListener('click',function(e){
+  if(e.target === this) closeLogin();
+});
+
+document.addEventListener('keydown',function(e){
+  if(e.key === 'Escape') closeLogin();
+});
 
 /* ============================================
    BAŞLAT
 ============================================ */
 renderCategories();
 renderProducts(products.slice(0,12));
+renderTopbar();
 </script>
 </body>
 </html>
