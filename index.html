@@ -51,16 +51,30 @@ body{background:#fff;color:#0f2a4a}
 .contact-text span{font-size:10.5px;color:#7c8794}
 
 /* NAV */
-.nav{background:var(--primary)}
+.nav{background:var(--primary);position:relative;z-index:100}
 .nav-inner{max-width:1360px;margin:0 auto;padding:0 32px;display:flex;align-items:center;height:52px}
 .nav-cat{background:var(--accent);height:100%;display:flex;align-items:center;gap:12px;font-weight:700;font-size:14px;color:#fff;cursor:pointer;margin-left:-32px;padding-left:32px;padding-right:26px;transition:.2s}
 .nav-cat:hover{background:var(--accent-hover)}
 .nav-cat svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2.2}
 .nav-links{display:flex;align-items:center;height:100%;margin-left:8px}
-.nav-links a{color:#fff;text-decoration:none;padding:0 20px;height:100%;display:flex;align-items:center;font-size:13.5px;font-weight:500;opacity:.92;cursor:pointer;transition:.2s;gap:6px}
+.nav-links a{color:#fff;text-decoration:none;padding:0 20px;height:100%;display:flex;align-items:center;font-size:13.5px;font-weight:500;opacity:.92;cursor:pointer;transition:.2s;gap:6px;position:relative}
 .nav-links a:hover{opacity:1;color:var(--accent)}
 .nav-links a.active{color:var(--accent);opacity:1}
 .nav-links a svg{width:10px;height:10px;stroke:currentColor;fill:none;stroke-width:2.5;opacity:.7}
+
+/* DROPDOWN MENÜ */
+.dropdown{position:relative;height:100%;display:flex;align-items:center}
+.dropdown > a{padding:0 20px;height:100%;display:flex;align-items:center}
+.dropdown-menu{position:absolute;top:100%;left:0;background:#fff;border-radius:0 0 8px 8px;box-shadow:0 15px 35px rgba(15,42,74,.15);min-width:280px;opacity:0;visibility:hidden;transform:translateY(-10px);transition:.25s;padding:8px 0;z-index:200}
+.dropdown:hover .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}
+.dropdown-item{padding:12px 22px;color:#0f2a4a;font-size:13.5px;font-weight:600;cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.dropdown-item:hover{background:#f7f9fb;color:var(--accent)}
+.dropdown-item svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.5}
+.dropdown-sub{position:relative}
+.dropdown-sub .submenu{position:absolute;left:100%;top:0;background:#fff;border-radius:8px;box-shadow:0 15px 35px rgba(15,42,74,.15);min-width:220px;opacity:0;visibility:hidden;transform:translateX(-10px);transition:.25s;padding:8px 0}
+.dropdown-sub:hover .submenu{opacity:1;visibility:visible;transform:translateX(0)}
+.dropdown-sub:hover{background:#f7f9fb}
+.dropdown-sub:hover > .dropdown-item{color:var(--accent)}
 
 /* HERO */
 .hero{position:relative;height:480px;overflow:hidden;background:#0f2a4a}
@@ -110,6 +124,10 @@ body{background:#fff;color:#0f2a4a}
 .section-head h2{font-size:22px;font-weight:900;color:#0f2a4a;letter-spacing:-.3px}
 .see-all{color:var(--accent);font-size:13px;font-weight:600;display:flex;align-items:center;gap:6px;cursor:pointer}
 .see-all svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.2}
+.filter-buttons{display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap}
+.filter-btn{padding:9px 18px;border:1.5px solid var(--border);background:#fff;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;color:#0f2a4a;transition:.2s}
+.filter-btn:hover{border-color:var(--accent);color:var(--accent)}
+.filter-btn.active{background:var(--primary);color:#fff;border-color:var(--primary)}
 .products-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
 .product{background:#fff;border-radius:8px;overflow:hidden;transition:.25s;display:flex;flex-direction:column;cursor:pointer}
 .product:hover .product-img img{transform:scale(1.05)}
@@ -118,7 +136,7 @@ body{background:#fff;color:#0f2a4a}
 .new-badge{position:absolute;top:10px;left:10px;background:var(--primary);color:#fff;padding:4px 10px;border-radius:3px;font-size:10.5px;font-weight:700;letter-spacing:.3px;z-index:2}
 .product-info{padding:14px 4px 0}
 .product-info h3{font-size:13.5px;font-weight:700;color:#0f2a4a;margin-bottom:5px;line-height:1.35}
-.product-info .desc{font-size:11.5px;color:#7c8794;line-height:1.4}
+.product-info .desc{font-size:11px;color:#7c8794;line-height:1.4}
 .product-info .price{font-size:16px;font-weight:800;color:#f58220;margin-top:10px;letter-spacing:-.2px}
 .product-info .price .kdv{font-size:11px;font-weight:600;color:#7c8794;margin-left:2px;letter-spacing:0}
 
@@ -171,6 +189,7 @@ body{background:#fff;color:#0f2a4a}
 </head>
 <body>
 
+<!-- TOP BAR -->
 <div class="topbar">
   <div class="topbar-inner">
     <div class="topbar-left">
@@ -188,6 +207,7 @@ body{background:#fff;color:#0f2a4a}
   </div>
 </div>
 
+<!-- HEADER -->
 <header class="header">
   <div class="header-inner">
     <div class="logo" onclick="showHome()">
@@ -218,6 +238,7 @@ body{background:#fff;color:#0f2a4a}
   </div>
 </header>
 
+<!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
     <div class="nav-cat"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>Tüm Kategoriler</div>
@@ -225,7 +246,18 @@ body{background:#fff;color:#0f2a4a}
       <a data-cat="all" class="active" onclick="filterCat('all',this)">Ana Sayfa</a>
       <a data-cat="kuzu-postu" onclick="filterCat('kuzu-postu',this)">Kuzu Postu</a>
       <a data-cat="kece" onclick="filterCat('kece',this)">Keçe</a>
-      <a data-cat="zimpara" onclick="filterCat('zimpara',this)">Zımpara <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
+      <div class="dropdown">
+        <a>Zımpara <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <div class="dropdown-menu">
+          <div class="dropdown-sub">
+            <div class="dropdown-item">Orbital & Cırt Zımpara <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+            <div class="submenu">
+              <div class="dropdown-item" onclick="filterCat('zimpara-yesil')">Yeşil Cırt & Velcro</div>
+              <div class="dropdown-item" onclick="filterCat('zimpara-gold')">Gold Cırt & Velcro</div>
+            </div>
+          </div>
+        </div>
+      </div>
       <a data-cat="pasta" onclick="filterCat('pasta',this)">Pasta & Polisaj <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
       <a onclick="showToast('Aksesuarlar yakında')">Aksesuarlar <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
       <a onclick="showToast('Hakkımızda sayfası')">Hakkımızda</a>
@@ -234,6 +266,7 @@ body{background:#fff;color:#0f2a4a}
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero" id="heroSection">
   <div class="hero-bg"></div>
   <div class="hero-inner">
@@ -255,10 +288,12 @@ body{background:#fff;color:#0f2a4a}
   </div>
 </section>
 
+<!-- KATEGORİLER -->
 <section class="cats" id="catsSection">
   <div class="cats-grid" id="catsGrid"></div>
 </section>
 
+<!-- TRUST -->
 <section class="trust">
   <div class="trust-inner">
     <div class="trust-item"><div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div class="trust-text"><h4>Ücretsiz Kargo</h4><p>1500 TL üzeri siparişlerde</p></div></div>
@@ -268,14 +303,17 @@ body{background:#fff;color:#0f2a4a}
   </div>
 </section>
 
+<!-- ÜRÜNLER -->
 <section class="products" id="productsSection">
   <div class="section-head">
     <h2 id="sectionTitle">Yeni Gelen Ürünler</h2>
     <div class="see-all" onclick="filterCat('all')">Tümünü Gör <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
   </div>
+  <div class="filter-buttons" id="filterButtons" style="display:none;"></div>
   <div class="products-grid" id="productsGrid"></div>
 </section>
 
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-top">
@@ -292,7 +330,7 @@ body{background:#fff;color:#0f2a4a}
         <p>📍 İstanbul, Türkiye</p>
         <p>📞 +90 533 123 45 67</p>
       </div>
-      <div><h4>Kategoriler</h4><ul><li onclick="filterCat('kuzu-postu')">Kuzu Postu</li><li onclick="filterCat('kece')">Keçe</li><li onclick="filterCat('zimpara')">Zımpara</li><li onclick="filterCat('pasta')">Pasta & Polisaj</li></ul></div>
+      <div><h4>Kategoriler</h4><ul><li onclick="filterCat('kuzu-postu')">Kuzu Postu</li><li onclick="filterCat('kece')">Keçe</li><li onclick="filterCat('zimpara-yesil')">Yeşil Cırt & Velcro</li><li onclick="filterCat('zimpara-gold')">Gold Cırt & Velcro</li><li onclick="filterCat('pasta')">Pasta & Polisaj</li></ul></div>
       <div><h4>Kurumsal</h4><ul><li>Hakkımızda</li><li>İletişim</li><li>Kargo & Teslimat</li><li>İade & Değişim</li></ul></div>
       <div><h4>Müşteri Hizmetleri</h4><ul><li>Sipariş Takibi</li><li>SSS</li><li>Toplu Sipariş</li><li>Bayilik</li></ul></div>
     </div>
@@ -307,6 +345,7 @@ body{background:#fff;color:#0f2a4a}
    GÖRSEL SABİTLERİ
 ============================================ */
 const GREEN_SAND = "zimpara.jpg";
+const GOLD_SAND = "gold-zimpara.jpg";
 const KUZU_POSTU = "kuzu-postu.jpg";
 
 /* ============================================
@@ -315,7 +354,7 @@ const KUZU_POSTU = "kuzu-postu.jpg";
 const categories=[
   {slug:"kuzu-postu",name:"Kuzu Postu",img:KUZU_POSTU},
   {slug:"kece",name:"Keçe",img:"https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&q=80"},
-  {slug:"zimpara",name:"Zımpara",img:GREEN_SAND},
+  {slug:"zimpara-yesil",name:"Zımpara",img:GREEN_SAND},
   {slug:"pasta",name:"Pasta & Polisaj",img:"https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=400&q=80"},
   {slug:"flap",name:"Flap Disk",img:"https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&q=80"},
   {slug:"aksesuar",name:"Aksesuarlar",img:"https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=400&q=80"}
@@ -325,25 +364,42 @@ const categories=[
    ÜRÜNLER
 ============================================ */
 const products=[
-  // ZIMPARA - 6 DELİKLİ YEŞİL VELCRO (40P → 2000P)
-  {id:1,name:"Yeşil Velcro Zımpara 40P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:18,kdv:true,img:GREEN_SAND},
-  {id:2,name:"Yeşil Velcro Zımpara 60P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:18,kdv:true,img:GREEN_SAND},
-  {id:3,name:"Yeşil Velcro Zımpara 80P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,kdv:true,img:GREEN_SAND},
-  {id:4,name:"Yeşil Velcro Zımpara 100P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,kdv:true,img:GREEN_SAND},
-  {id:5,name:"Yeşil Velcro Zımpara 120P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,kdv:true,img:GREEN_SAND},
-  {id:6,name:"Yeşil Velcro Zımpara 150P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,kdv:true,img:GREEN_SAND},
-  {id:7,name:"Yeşil Velcro Zımpara 180P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,kdv:true,img:GREEN_SAND},
-  {id:8,name:"Yeşil Velcro Zımpara 220P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,kdv:true,img:GREEN_SAND},
-  {id:9,name:"Yeşil Velcro Zımpara 240P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,kdv:true,img:GREEN_SAND},
-  {id:10,name:"Yeşil Velcro Zımpara 320P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,kdv:true,img:GREEN_SAND},
-  {id:11,name:"Yeşil Velcro Zımpara 400P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,kdv:true,img:GREEN_SAND},
-  {id:12,name:"Yeşil Velcro Zımpara 600P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,kdv:true,img:GREEN_SAND},
-  {id:13,name:"Yeşil Velcro Zımpara 800P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,kdv:true,img:GREEN_SAND},
-  {id:14,name:"Yeşil Velcro Zımpara 1000P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:18,kdv:true,img:GREEN_SAND},
-  {id:15,name:"Yeşil Velcro Zımpara 1200P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:18,kdv:true,img:GREEN_SAND},
-  {id:16,name:"Yeşil Velcro Zımpara 1500P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:18,kdv:true,img:GREEN_SAND},
-  {id:17,name:"Yeşil Velcro Zımpara 2000P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:18,kdv:true,img:GREEN_SAND},
-  {id:18,name:"Yeşil Velcro Zımpara Seti 40-2000P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:520,kdv:true,img:GREEN_SAND},  // KUZU POSTU
+  // ZIMPARA - YEŞİL CIRT & VELCRO (40P → 2000P)
+  {id:1,name:"Yeşil Cırt & Velcro 40P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-yesil",price:18,kdv:true,img:GREEN_SAND},
+  {id:2,name:"Yeşil Cırt & Velcro 60P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-yesil",price:18,kdv:true,img:GREEN_SAND},
+  {id:3,name:"Yeşil Cırt & Velcro 80P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-yesil",price:16.5,kdv:true,img:GREEN_SAND},
+  {id:4,name:"Yeşil Cırt & Velcro 100P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-yesil",price:16.5,kdv:true,img:GREEN_SAND},
+  {id:5,name:"Yeşil Cırt & Velcro 120P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-yesil",price:16.5,kdv:true,img:GREEN_SAND},
+  {id:6,name:"Yeşil Cırt & Velcro 150P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-yesil",price:16.5,kdv:true,img:GREEN_SAND},
+  {id:7,name:"Yeşil Cırt & Velcro 180P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-yesil",price:16.5,kdv:true,img:GREEN_SAND},
+  {id:8,name:"Yeşil Cırt & Velcro 220P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-yesil",price:16.5,kdv:true,img:GREEN_SAND},
+  {id:9,name:"Yeşil Cırt & Velcro 240P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-yesil",price:16.5,kdv:true,img:GREEN_SAND},
+  {id:10,name:"Yeşil Cırt & Velcro 320P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-yesil",price:16.5,kdv:true,img:GREEN_SAND},
+  {id:11,name:"Yeşil Cırt & Velcro 400P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-yesil",price:16.5,kdv:true,img:GREEN_SAND},
+  {id:12,name:"Yeşil Cırt & Velcro 600P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-yesil",price:16.5,kdv:true,img:GREEN_SAND},
+  {id:13,name:"Yeşil Cırt & Velcro 800P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-yesil",price:16.5,kdv:true,img:GREEN_SAND},
+  {id:14,name:"Yeşil Cırt & Velcro 1000P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-yesil",price:18,kdv:true,img:GREEN_SAND},
+  {id:15,name:"Yeşil Cırt & Velcro 1200P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-yesil",price:18,kdv:true,img:GREEN_SAND},
+  {id:16,name:"Yeşil Cırt & Velcro 1500P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-yesil",price:18,kdv:true,img:GREEN_SAND},
+  {id:17,name:"Yeşil Cırt & Velcro 2000P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-yesil",price:18,kdv:true,img:GREEN_SAND},
+  {id:18,name:"Yeşil Cırt & Velcro Seti 40-2000P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-yesil",price:520,kdv:true,img:GREEN_SAND},
+
+  // ZIMPARA - GOLD CIRT & VELCRO (40P → 800P)
+  {id:101,name:"Gold Cırt & Velcro 40P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-gold",price:18,kdv:true,img:GOLD_SAND},
+  {id:102,name:"Gold Cırt & Velcro 60P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-gold",price:18,kdv:true,img:GOLD_SAND},
+  {id:103,name:"Gold Cırt & Velcro 80P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-gold",price:16.5,kdv:true,img:GOLD_SAND},
+  {id:104,name:"Gold Cırt & Velcro 100P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-gold",price:16.5,kdv:true,img:GOLD_SAND},
+  {id:105,name:"Gold Cırt & Velcro 120P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-gold",price:16.5,kdv:true,img:GOLD_SAND},
+  {id:106,name:"Gold Cırt & Velcro 150P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-gold",price:16.5,kdv:true,img:GOLD_SAND},
+  {id:107,name:"Gold Cırt & Velcro 180P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-gold",price:16.5,kdv:true,img:GOLD_SAND},
+  {id:108,name:"Gold Cırt & Velcro 220P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-gold",price:16.5,kdv:true,img:GOLD_SAND},
+  {id:109,name:"Gold Cırt & Velcro 240P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-gold",price:16.5,kdv:true,img:GOLD_SAND},
+  {id:110,name:"Gold Cırt & Velcro 320P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-gold",price:16.5,kdv:true,img:GOLD_SAND},
+  {id:111,name:"Gold Cırt & Velcro 400P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-gold",price:16.5,kdv:true,img:GOLD_SAND},
+  {id:112,name:"Gold Cırt & Velcro 600P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-gold",price:16.5,kdv:true,img:GOLD_SAND},
+  {id:113,name:"Gold Cırt & Velcro 800P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-gold",price:16.5,kdv:true,img:GOLD_SAND},
+
+  // KUZU POSTU
   {id:30,name:"Kuzu Postu Polisaj Keçesi 150 mm",desc:"Polisaj için ideal kalite",cat:"kuzu-postu",price:275,img:KUZU_POSTU},
   {id:31,name:"Kuzu Postu Polisaj Keçesi 180 mm",desc:"Profesyonel seri",cat:"kuzu-postu",price:325,img:KUZU_POSTU},
   {id:32,name:"Kuzu Postu Polisaj Keçesi 230 mm",desc:"Geniş yüzey polisajı",cat:"kuzu-postu",price:420,img:KUZU_POSTU},
@@ -395,7 +451,7 @@ function renderProducts(list){
       <div class="product-info">
         <h3>${p.name}</h3>
         <div class="desc">${p.desc}</div>
-                ${p.price ? `<div class="price">${p.price.toLocaleString('tr-TR')} TL${p.kdv ? ' <span class="kdv">(+KDV)</span>' : ''}</div>` : ''}
+        ${p.price ? `<div class="price">${p.price.toLocaleString('tr-TR')} TL${p.kdv ? ' <span class="kdv">(+KDV)</span>' : ''}</div>` : ''}
       </div>
     </div>
   `).join('');
@@ -411,7 +467,8 @@ function filterCat(cat,el){
     all:'Yeni Gelen Ürünler',
     'kuzu-postu':'Kuzu Postu Ürünleri',
     kece:'Keçe Ürünleri',
-    zimpara:'Yeşil Velcro Zımpara Ürünleri (40P - 2000P)',
+    'zimpara-yesil':'Yeşil Cırt & Velcro Zımpara Ürünleri (40P - 2000P)',
+    'zimpara-gold':'Gold Cırt & Velcro Zımpara Ürünleri (40P - 800P)',
     pasta:'Pasta & Polisaj Ürünleri',
     flap:'Flap Disk Ürünleri',
     aksesuar:'Aksesuar Ürünleri'
