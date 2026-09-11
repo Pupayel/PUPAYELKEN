@@ -72,14 +72,14 @@ body{background:#fff;color:#0f2a4a}
 .nav-cat:hover{background:var(--accent-hover)}
 .nav-cat svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2.2}
 .nav-links{display:flex;align-items:center;height:100%;margin-left:8px}
-.nav-links > a{color:#fff;text-decoration:none;padding:0 20px;height:100%;display:flex;align-items:center;font-size:13.5px;font-weight:500;opacity:.92;cursor:pointer;transition:.2s;gap:6px;position:relative}
+.nav-links > a{color:#fff;text-decoration:none;padding:0 18px;height:100%;display:flex;align-items:center;font-size:13.5px;font-weight:500;opacity:.92;cursor:pointer;transition:.2s;gap:6px;position:relative}
 .nav-links > a:hover{opacity:1;color:var(--accent)}
 .nav-links > a.active{color:var(--accent);opacity:1}
 .nav-links > a svg{width:10px;height:10px;stroke:currentColor;fill:none;stroke-width:2.5;opacity:.7}
 
 /* DROPDOWN */
 .dropdown{position:relative;height:100%;display:flex;align-items:center}
-.dropdown > a{padding:0 20px;height:100%;display:flex;align-items:center;gap:6px;color:#fff;font-size:13.5px;font-weight:500;opacity:.92;cursor:pointer;transition:.2s}
+.dropdown > a{padding:0 18px;height:100%;display:flex;align-items:center;gap:6px;color:#fff;font-size:13.5px;font-weight:500;opacity:.92;cursor:pointer;transition:.2s}
 .dropdown:hover > a{opacity:1;color:var(--accent)}
 .dropdown > a svg{width:10px;height:10px;stroke:currentColor;fill:none;stroke-width:2.5;opacity:.7}
 .dropdown-menu{position:absolute;top:100%;left:0;background:#fff;border-radius:0 0 8px 8px;box-shadow:0 15px 35px rgba(15,42,74,.15);min-width:280px;opacity:0;visibility:hidden;transform:translateY(-10px);transition:.25s;padding:8px 0;z-index:200}
@@ -89,7 +89,7 @@ body{background:#fff;color:#0f2a4a}
 .dropdown-item svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.5;flex-shrink:0}
 .dropdown-sub{position:relative}
 .dropdown-sub > .dropdown-item{width:100%}
-.dropdown-sub .submenu{position:absolute;left:100%;top:0;background:#fff;border-radius:8px;box-shadow:0 15px 35px rgba(15,42,74,.15);min-width:220px;opacity:0;visibility:hidden;transform:translateX(-10px);transition:.25s;padding:8px 0;z-index:210}
+.dropdown-sub .submenu{position:absolute;left:100%;top:0;background:#fff;border-radius:8px;box-shadow:0 15px 35px rgba(15,42,74,.15);min-width:240px;opacity:0;visibility:hidden;transform:translateX(-10px);transition:.25s;padding:8px 0;z-index:210}
 .dropdown-sub:hover > .submenu{opacity:1;visibility:visible;transform:translateX(0)}
 .dropdown-sub:hover{background:#f7f9fb}
 .dropdown-sub:hover > .dropdown-item{color:var(--accent);background:#f7f9fb}
@@ -157,6 +157,7 @@ body{background:#fff;color:#0f2a4a}
 .product-info .desc{font-size:11px;color:#7c8794;line-height:1.4}
 .product-info .price{font-size:14px;font-weight:800;color:#f58220;margin-top:10px;letter-spacing:-.2px}
 .product-info .price .kdv{font-size:11px;font-weight:600;color:#7c8794;margin-left:2px;letter-spacing:0}
+.product-info .price.sorunuz{color:#7c8794;font-style:italic;font-size:13px}
 
 /* LOGIN MODAL */
 .login-overlay{position:fixed;inset:0;background:rgba(15,32,53,.75);display:none;align-items:center;justify-content:center;padding:20px;z-index:500;backdrop-filter:blur(4px);overflow-y:auto}
@@ -247,9 +248,7 @@ body{background:#fff;color:#0f2a4a}
       <div><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Güvenli Alışveriş</div>
       <div><svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>7/24 Destek</div>
     </div>
-    <div class="topbar-right" id="topbarRight">
-      <!-- JS ile doldurulur -->
-    </div>
+    <div class="topbar-right" id="topbarRight"></div>
   </div>
 </div>
 
@@ -332,13 +331,45 @@ body{background:#fff;color:#0f2a4a}
         </div>
       </div>
       <div class="dropdown">
+        <a>Zımpara Tabanları <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <div class="dropdown-menu">
+          <div class="dropdown-sub">
+            <div class="dropdown-item">5/16" Orbital Taban <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+            <div class="submenu">
+              <div class="dropdown-item" onclick="filterCat('taban-516-76')">Çap 76 mm</div>
+              <div class="dropdown-item" onclick="filterCat('taban-516-100')">Çap 100 mm</div>
+              <div class="dropdown-item" onclick="filterCat('taban-516-115')">Çap 115 mm</div>
+              <div class="dropdown-item" onclick="filterCat('taban-516-125')">Çap 125 mm</div>
+              <div class="dropdown-item" onclick="filterCat('taban-516-150')">Çap 150 mm</div>
+              <div class="dropdown-item" onclick="filterCat('taban-516-180')">Çap 180 mm</div>
+            </div>
+          </div>
+          <div class="dropdown-sub">
+            <div class="dropdown-item">M14 EVA Taban <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+            <div class="submenu">
+              <div class="dropdown-item" onclick="filterCat('taban-m14-100')">Çap 100 mm</div>
+              <div class="dropdown-item" onclick="filterCat('taban-m14-115')">Çap 115 mm</div>
+              <div class="dropdown-item" onclick="filterCat('taban-m14-125')">Çap 125 mm</div>
+              <div class="dropdown-item" onclick="filterCat('taban-m14-150')">Çap 150 mm</div>
+              <div class="dropdown-item" onclick="filterCat('taban-m14-180')">Çap 180 mm</div>
+            </div>
+          </div>
+          <div class="dropdown-sub">
+            <div class="dropdown-item">Ara Taban <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+            <div class="submenu">
+              <div class="dropdown-item" onclick="filterCat('taban-ara-10')">10 mm Soft Ara Taban</div>
+              <div class="dropdown-item" onclick="filterCat('taban-ara-6')">6 mm Soft Ara Taban</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dropdown">
         <a>Pasta & Polisaj <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
         <div class="dropdown-menu">
           <div class="dropdown-item" onclick="filterCat('pasta-marine')">MARİNE GRUBU</div>
           <div class="dropdown-item" onclick="filterCat('pasta-oto')">OTO GRUBU</div>
         </div>
       </div>
-      <a onclick="showToast('Aksesuarlar yakında')">Aksesuarlar <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
       <a onclick="showToast('Hakkımızda sayfası')">Hakkımızda</a>
       <a onclick="showToast('İletişim sayfası')">İletişim</a>
     </div>
@@ -411,10 +442,9 @@ body{background:#fff;color:#0f2a4a}
       </div>
       <div><h4>Kategoriler</h4><ul>
         <li onclick="filterCat('polisaj-marine')">Polisaj Keçe - Marine</li>
-        <li onclick="filterCat('polisaj-oto')">Polisaj Keçe - Oto</li>
         <li onclick="filterCat('zimpara-yesil')">Yeşil Cırt & Velcro</li>
         <li onclick="filterCat('zimpara-gold')">Gold Cırt & Velcro</li>
-        <li onclick="filterCat('flap-115-ao')">Flap Disk 115x22</li>
+        <li onclick="filterCat('taban-516-100')">Zımpara Tabanları</li>
         <li onclick="filterCat('pasta-marine')">Pasta - Marine</li>
       </ul></div>
       <div><h4>Kurumsal</h4><ul><li>Hakkımızda</li><li>İletişim</li><li>Kargo & Teslimat</li><li>İade & Değişim</li></ul></div>
@@ -432,13 +462,10 @@ body{background:#fff;color:#0f2a4a}
       <h2>PUPA YELKEN</h2>
       <p>Hesabınıza giriş yapın veya yeni hesap oluşturun</p>
     </div>
-    
     <div class="login-tabs">
       <div class="login-tab active" onclick="switchLoginTab('login')">Giriş Yap</div>
       <div class="login-tab" onclick="switchLoginTab('register')">Üye Ol</div>
     </div>
-    
-    <!-- GİRİŞ FORMU -->
     <div class="login-form active" id="formLogin">
       <div class="form-group">
         <label>📱 Telefon Numarası</label>
@@ -450,8 +477,6 @@ body{background:#fff;color:#0f2a4a}
       </div>
       <button class="login-submit" onclick="doLogin()">Giriş Yap</button>
     </div>
-    
-    <!-- ÜYE OL FORMU -->
     <div class="login-form" id="formRegister">
       <div class="form-group">
         <label>📱 Telefon Numarası</label>
@@ -467,9 +492,7 @@ body{background:#fff;color:#0f2a4a}
       </div>
       <button class="login-submit" onclick="doRegister()">Üye Ol</button>
     </div>
-    
     <div class="login-divider">veya</div>
-    
     <button class="guest-btn" onclick="continueAsGuest()">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v2"/></svg>
       Üye Olmadan Devam Et
@@ -493,6 +516,20 @@ const BEYAZ_KUZU = "beyazkuzu-kece.jpg";
 const FLAP_AO = "flap-ao.jpg";
 const FLAP_ZR = "flap-zr.jpg";
 const FLAP_CR = "flap-cr.jpg";
+/* Zımpara Tabanı görselleri — sen yükleyeceksin */
+const TABAN_516_76 = "taban-516-76.jpg";
+const TABAN_516_100 = "taban-516-100.jpg";
+const TABAN_516_115 = "taban-516-115.jpg";
+const TABAN_516_125 = "taban-516-125.jpg";
+const TABAN_516_150 = "taban-516-150.jpg";
+const TABAN_516_180 = "taban-516-180.jpg";
+const TABAN_M14_100 = "taban-m14-100.jpg";
+const TABAN_M14_115 = "taban-m14-115.jpg";
+const TABAN_M14_125 = "taban-m14-125.jpg";
+const TABAN_M14_150 = "taban-m14-150.jpg";
+const TABAN_M14_180 = "taban-m14-180.jpg";
+const TABAN_ARA_10 = "taban-ara-10mm.jpg";
+const TABAN_ARA_6 = "taban-ara-6mm.jpg";
 
 /* ============================================
    KATEGORİLER
@@ -503,7 +540,7 @@ const categories=[
   {slug:"zimpara-yesil",name:"Zımpara",img:GREEN_SAND},
   {slug:"flap-115-ao",name:"Flap Disk",img:FLAP_AO},
   {slug:"pasta-marine",name:"Pasta & Polisaj",img:"https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=400&q=80"},
-  {slug:"aksesuar",name:"Aksesuarlar",img:"https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=400&q=80"}
+  {slug:"taban-516-100",name:"Zımpara Tabanları",img:TABAN_516_100}
 ];
 
 /* ============================================
@@ -572,69 +609,75 @@ const products=[
   {id:112,name:"Gold Cırt & Velcro 600P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-gold",price:16.5,kdv:true,img:GOLD_SAND},
   {id:113,name:"Gold Cırt & Velcro 800P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-gold",price:16.5,kdv:true,img:GOLD_SAND},
 
-  // FLAP 115x22 - AO
-  {id:200,name:"Flap Disk 115x22 AO P40",desc:"Alüminyum Oksit - P40 - Sorunuz",cat:"flap-115-ao",img:FLAP_AO},
-  {id:201,name:"Flap Disk 115x22 AO P60",desc:"Alüminyum Oksit - P60 - Sorunuz",cat:"flap-115-ao",img:FLAP_AO},
-  {id:202,name:"Flap Disk 115x22 AO P80",desc:"Alüminyum Oksit - P80 - Sorunuz",cat:"flap-115-ao",img:FLAP_AO},
-  {id:203,name:"Flap Disk 115x22 ZR P40",desc:"Zirkonyum - P40 - Sorunuz",cat:"flap-115-zr",img:FLAP_ZR},
-  {id:204,name:"Flap Disk 115x22 ZR P60",desc:"Zirkonyum - P60 - Sorunuz",cat:"flap-115-zr",img:FLAP_ZR},
-  {id:205,name:"Flap Disk 115x22 ZR P80",desc:"Zirkonyum - P80 - Sorunuz",cat:"flap-115-zr",img:FLAP_ZR},
-  {id:206,name:"Flap Disk 115x22 CR P40",desc:"Seramik - P40 - Sorunuz",cat:"flap-115-cr",img:FLAP_CR},
-  {id:207,name:"Flap Disk 115x22 CR P60",desc:"Seramik - P60 - Sorunuz",cat:"flap-115-cr",img:FLAP_CR},
-  {id:208,name:"Flap Disk 115x22 CR P80",desc:"Seramik - P80 - Sorunuz",cat:"flap-115-cr",img:FLAP_CR},
+  // FLAP 115x22
+  {id:200,name:"Flap Disk 115x22 AO P40",desc:"Alüminyum Oksit - P40",cat:"flap-115-ao",img:FLAP_AO},
+  {id:201,name:"Flap Disk 115x22 AO P60",desc:"Alüminyum Oksit - P60",cat:"flap-115-ao",img:FLAP_AO},
+  {id:202,name:"Flap Disk 115x22 AO P80",desc:"Alüminyum Oksit - P80",cat:"flap-115-ao",img:FLAP_AO},
+  {id:203,name:"Flap Disk 115x22 ZR P40",desc:"Zirkonyum - P40",cat:"flap-115-zr",img:FLAP_ZR},
+  {id:204,name:"Flap Disk 115x22 ZR P60",desc:"Zirkonyum - P60",cat:"flap-115-zr",img:FLAP_ZR},
+  {id:205,name:"Flap Disk 115x22 ZR P80",desc:"Zirkonyum - P80",cat:"flap-115-zr",img:FLAP_ZR},
+  {id:206,name:"Flap Disk 115x22 CR P40",desc:"Seramik - P40",cat:"flap-115-cr",img:FLAP_CR},
+  {id:207,name:"Flap Disk 115x22 CR P60",desc:"Seramik - P60",cat:"flap-115-cr",img:FLAP_CR},
+  {id:208,name:"Flap Disk 115x22 CR P80",desc:"Seramik - P80",cat:"flap-115-cr",img:FLAP_CR},
 
   // FLAP 125x22
-  {id:210,name:"Flap Disk 125x22 AO P40",desc:"Alüminyum Oksit - P40 - Sorunuz",cat:"flap-125-ao",img:FLAP_AO},
-  {id:211,name:"Flap Disk 125x22 AO P60",desc:"Alüminyum Oksit - P60 - Sorunuz",cat:"flap-125-ao",img:FLAP_AO},
-  {id:212,name:"Flap Disk 125x22 AO P80",desc:"Alüminyum Oksit - P80 - Sorunuz",cat:"flap-125-ao",img:FLAP_AO},
-  {id:213,name:"Flap Disk 125x22 ZR P40",desc:"Zirkonyum - P40 - Sorunuz",cat:"flap-125-zr",img:FLAP_ZR},
-  {id:214,name:"Flap Disk 125x22 ZR P60",desc:"Zirkonyum - P60 - Sorunuz",cat:"flap-125-zr",img:FLAP_ZR},
-  {id:215,name:"Flap Disk 125x22 ZR P80",desc:"Zirkonyum - P80 - Sorunuz",cat:"flap-125-zr",img:FLAP_ZR},
-  {id:216,name:"Flap Disk 125x22 CR P40",desc:"Seramik - P40 - Sorunuz",cat:"flap-125-cr",img:FLAP_CR},
-  {id:217,name:"Flap Disk 125x22 CR P60",desc:"Seramik - P60 - Sorunuz",cat:"flap-125-cr",img:FLAP_CR},
-  {id:218,name:"Flap Disk 125x22 CR P80",desc:"Seramik - P80 - Sorunuz",cat:"flap-125-cr",img:FLAP_CR},
+  {id:210,name:"Flap Disk 125x22 AO P40",desc:"Alüminyum Oksit - P40",cat:"flap-125-ao",img:FLAP_AO},
+  {id:211,name:"Flap Disk 125x22 AO P60",desc:"Alüminyum Oksit - P60",cat:"flap-125-ao",img:FLAP_AO},
+  {id:212,name:"Flap Disk 125x22 AO P80",desc:"Alüminyum Oksit - P80",cat:"flap-125-ao",img:FLAP_AO},
+  {id:213,name:"Flap Disk 125x22 ZR P40",desc:"Zirkonyum - P40",cat:"flap-125-zr",img:FLAP_ZR},
+  {id:214,name:"Flap Disk 125x22 ZR P60",desc:"Zirkonyum - P60",cat:"flap-125-zr",img:FLAP_ZR},
+  {id:215,name:"Flap Disk 125x22 ZR P80",desc:"Zirkonyum - P80",cat:"flap-125-zr",img:FLAP_ZR},
+  {id:216,name:"Flap Disk 125x22 CR P40",desc:"Seramik - P40",cat:"flap-125-cr",img:FLAP_CR},
+  {id:217,name:"Flap Disk 125x22 CR P60",desc:"Seramik - P60",cat:"flap-125-cr",img:FLAP_CR},
+  {id:218,name:"Flap Disk 125x22 CR P80",desc:"Seramik - P80",cat:"flap-125-cr",img:FLAP_CR},
 
   // FLAP 180x22
-  {id:220,name:"Flap Disk 180x22 AO P40",desc:"Alüminyum Oksit - P40 - Sorunuz",cat:"flap-180-ao",img:FLAP_AO},
-  {id:221,name:"Flap Disk 180x22 AO P60",desc:"Alüminyum Oksit - P60 - Sorunuz",cat:"flap-180-ao",img:FLAP_AO},
-  {id:222,name:"Flap Disk 180x22 AO P80",desc:"Alüminyum Oksit - P80 - Sorunuz",cat:"flap-180-ao",img:FLAP_AO},
-  {id:223,name:"Flap Disk 180x22 ZR P40",desc:"Zirkonyum - P40 - Sorunuz",cat:"flap-180-zr",img:FLAP_ZR},
-  {id:224,name:"Flap Disk 180x22 ZR P60",desc:"Zirkonyum - P60 - Sorunuz",cat:"flap-180-zr",img:FLAP_ZR},
-  {id:225,name:"Flap Disk 180x22 ZR P80",desc:"Zirkonyum - P80 - Sorunuz",cat:"flap-180-zr",img:FLAP_ZR},
-  {id:226,name:"Flap Disk 180x22 CR P40",desc:"Seramik - P40 - Sorunuz",cat:"flap-180-cr",img:FLAP_CR},
-  {id:227,name:"Flap Disk 180x22 CR P60",desc:"Seramik - P60 - Sorunuz",cat:"flap-180-cr",img:FLAP_CR},
-  {id:228,name:"Flap Disk 180x22 CR P80",desc:"Seramik - P80 - Sorunuz",cat:"flap-180-cr",img:FLAP_CR},
+  {id:220,name:"Flap Disk 180x22 AO P40",desc:"Alüminyum Oksit - P40",cat:"flap-180-ao",img:FLAP_AO},
+  {id:221,name:"Flap Disk 180x22 AO P60",desc:"Alüminyum Oksit - P60",cat:"flap-180-ao",img:FLAP_AO},
+  {id:222,name:"Flap Disk 180x22 AO P80",desc:"Alüminyum Oksit - P80",cat:"flap-180-ao",img:FLAP_AO},
+  {id:223,name:"Flap Disk 180x22 ZR P40",desc:"Zirkonyum - P40",cat:"flap-180-zr",img:FLAP_ZR},
+  {id:224,name:"Flap Disk 180x22 ZR P60",desc:"Zirkonyum - P60",cat:"flap-180-zr",img:FLAP_ZR},
+  {id:225,name:"Flap Disk 180x22 ZR P80",desc:"Zirkonyum - P80",cat:"flap-180-zr",img:FLAP_ZR},
+  {id:226,name:"Flap Disk 180x22 CR P40",desc:"Seramik - P40",cat:"flap-180-cr",img:FLAP_CR},
+  {id:227,name:"Flap Disk 180x22 CR P60",desc:"Seramik - P60",cat:"flap-180-cr",img:FLAP_CR},
+  {id:228,name:"Flap Disk 180x22 CR P80",desc:"Seramik - P80",cat:"flap-180-cr",img:FLAP_CR},
+
+  // ZIMPARA TABANLARI - 5/16" Orbital
+  {id:300,name:"5/16\" Orbital Taban 76 mm",desc:"5/16\" orbital zımpara tabanı - 76 mm",cat:"taban-516-76",img:TABAN_516_76},
+  {id:301,name:"5/16\" Orbital Taban 100 mm",desc:"5/16\" orbital zımpara tabanı - 100 mm",cat:"taban-516-100",img:TABAN_516_100},
+  {id:302,name:"5/16\" Orbital Taban 115 mm",desc:"5/16\" orbital zımpara tabanı - 115 mm",cat:"taban-516-115",img:TABAN_516_115},
+  {id:303,name:"5/16\" Orbital Taban 125 mm",desc:"5/16\" orbital zımpara tabanı - 125 mm",cat:"taban-516-125",img:TABAN_516_125},
+  {id:304,name:"5/16\" Orbital Taban 150 mm",desc:"5/16\" orbital zımpara tabanı - 150 mm",cat:"taban-516-150",img:TABAN_516_150},
+  {id:305,name:"5/16\" Orbital Taban 180 mm",desc:"5/16\" orbital zımpara tabanı - 180 mm",cat:"taban-516-180",img:TABAN_516_180},
+
+  // ZIMPARA TABANLARI - M14 EVA
+  {id:310,name:"M14 EVA Taban 100 mm",desc:"M14 EVA zımpara tabanı - 100 mm",cat:"taban-m14-100",img:TABAN_M14_100},
+  {id:311,name:"M14 EVA Taban 115 mm",desc:"M14 EVA zımpara tabanı - 115 mm",cat:"taban-m14-115",img:TABAN_M14_115},
+  {id:312,name:"M14 EVA Taban 125 mm",desc:"M14 EVA zımpara tabanı - 125 mm",cat:"taban-m14-125",img:TABAN_M14_125},
+  {id:313,name:"M14 EVA Taban 150 mm",desc:"M14 EVA zımpara tabanı - 150 mm",cat:"taban-m14-150",img:TABAN_M14_150},
+  {id:314,name:"M14 EVA Taban 180 mm",desc:"M14 EVA zımpara tabanı - 180 mm",cat:"taban-m14-180",img:TABAN_M14_180},
+
+  // ZIMPARA TABANLARI - Ara Taban
+  {id:320,name:"10 mm Soft Ara Taban",desc:"10 mm soft ara taban - esnek yapı",cat:"taban-ara-10",img:TABAN_ARA_10},
+  {id:321,name:"6 mm Soft Ara Taban",desc:"6 mm soft ara taban - esnek yapı",cat:"taban-ara-6",img:TABAN_ARA_6},
 
   // KEÇE
   {id:40,name:"Sert Keçe 150 mm",desc:"Ağır çizik giderme",cat:"kece",price:89,img:"https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&q=80"},
   {id:41,name:"Yumuşak Keçe 180 mm",desc:"Son kat parlatma",cat:"kece",price:110,img:"https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&q=80"},
-  {id:42,name:"Keçe Disk 125 mm",desc:"Yüksek yoğunluklu keçe",cat:"kece",price:75,img:"https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&q=80&sat=-20"},
-
-  // AKSESUAR
-  {id:70,name:"Polisaj Makinesi 1200W",desc:"Profesyonel seri",cat:"aksesuar",price:1890,img:"https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=400&q=80"},
-  {id:71,name:"Polisaj Pedi Seti",desc:"5 parça set",cat:"aksesuar",price:320,img:"https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=400&q=80&sat=-15"}
+  {id:42,name:"Keçe Disk 125 mm",desc:"Yüksek yoğunluklu keçe",cat:"kece",price:75,img:"https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&q=80&sat=-20"}
 ];
 
 /* ============================================
-   KULLANICI SİSTEMİ (localStorage)
+   KULLANICI SİSTEMİ
 ============================================ */
 let currentUser = JSON.parse(localStorage.getItem('pupaUser')) || null;
 
-function saveUsers(users){
-  localStorage.setItem('pupaUsers', JSON.stringify(users));
-}
+function saveUsers(users){localStorage.setItem('pupaUsers', JSON.stringify(users));}
+function getUsers(){return JSON.parse(localStorage.getItem('pupaUsers')) || [];}
 
-function getUsers(){
-  return JSON.parse(localStorage.getItem('pupaUsers')) || [];
-}
-
-/* ============================================
-   TOPBAR RENDER (Kullanıcı durumuna göre)
-============================================ */
 function renderTopbar(){
   const el = document.getElementById('topbarRight');
-  if(currentUser){
-    // Giriş yapmış
+  if(currentUser && currentUser !== 'guest'){
     el.innerHTML = `
       <div class="user-menu">
         <a>
@@ -644,186 +687,102 @@ function renderTopbar(){
         </a>
         <div class="user-dropdown">
           <div class="user-dropdown-item" onclick="showToast('Hesabım sayfası yakında')">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v2"/></svg>
-            Hesabım
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v2"/></svg>Hesabım
           </div>
           <div class="user-dropdown-item" onclick="showToast('Siparişlerim yakında')">
-            <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-            Siparişlerim
+            <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>Siparişlerim
           </div>
           <div class="user-dropdown-item" onclick="showAddress()">
-            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Adres Bilgilerim
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Adres Bilgilerim
           </div>
           <div class="user-dropdown-divider"></div>
           <div class="user-dropdown-item danger" onclick="doLogout()">
-            <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-            Çıkış Yap
+            <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>Çıkış Yap
           </div>
         </div>
       </div>
       <div class="topbar-cart" onclick="showToast('Sepet yakında aktif')">
         <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
         <span class="count">0</span><span style="font-weight:600">0,00 TL</span>
-      </div>
-    `;
+      </div>`;
   }else if(currentUser === 'guest'){
-    // Misafir
     el.innerHTML = `
-      <a onclick="openLogin()">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v2"/></svg>
-        Misafir Olarak Devam
-      </a>
+      <a onclick="openLogin()"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v2"/></svg>Misafir Olarak Devam</a>
       <div class="topbar-cart" onclick="showToast('Sepet yakında aktif')">
         <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
         <span class="count">0</span><span style="font-weight:600">0,00 TL</span>
-      </div>
-    `;
+      </div>`;
   }else{
-    // Giriş yapmamış
     el.innerHTML = `
-      <a onclick="openLogin()">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v2"/></svg>
-        Giriş Yap / Üye Ol
-      </a>
+      <a onclick="openLogin()"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v2"/></svg>Giriş Yap / Üye Ol</a>
       <div class="topbar-cart" onclick="showToast('Sepet yakında aktif')">
         <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
         <span class="count">0</span><span style="font-weight:600">0,00 TL</span>
-      </div>
-    `;
+      </div>`;
   }
 }
 
-/* ============================================
-   LOGIN MODAL FONKSİYONLARI
-============================================ */
-function openLogin(){
-  document.getElementById('loginOverlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeLogin(){
-  document.getElementById('loginOverlay').classList.remove('open');
-  document.body.style.overflow = '';
-  // Formları temizle
-  ['loginPhone','loginPassword','registerPhone','registerAddress','registerPassword'].forEach(id=>{
-    const el = document.getElementById(id);
-    if(el) el.value = '';
-  });
-}
+function openLogin(){document.getElementById('loginOverlay').classList.add('open');document.body.style.overflow='hidden';}
+function closeLogin(){document.getElementById('loginOverlay').classList.remove('open');document.body.style.overflow='';['loginPhone','loginPassword','registerPhone','registerAddress','registerPassword'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});}
 
 function switchLoginTab(tab){
   document.querySelectorAll('.login-tab').forEach(t=>t.classList.remove('active'));
   document.querySelectorAll('.login-form').forEach(f=>f.classList.remove('active'));
-  if(tab === 'login'){
-    document.querySelectorAll('.login-tab')[0].classList.add('active');
-    document.getElementById('formLogin').classList.add('active');
-  }else{
-    document.querySelectorAll('.login-tab')[1].classList.add('active');
-    document.getElementById('formRegister').classList.add('active');
-  }
+  if(tab==='login'){document.querySelectorAll('.login-tab')[0].classList.add('active');document.getElementById('formLogin').classList.add('active');}
+  else{document.querySelectorAll('.login-tab')[1].classList.add('active');document.getElementById('formRegister').classList.add('active');}
 }
 
-function formatPhone(input){
-  let v = input.value.replace(/\D/g,'').slice(0,11);
-  if(v.length > 0 && v[0] !== '0') v = '0' + v;
-  input.value = v;
-}
+function formatPhone(input){let v=input.value.replace(/\D/g,'').slice(0,11);if(v.length>0 && v[0]!=='0')v='0'+v;input.value=v;}
 
 function doLogin(){
-  const phone = document.getElementById('loginPhone').value.trim();
-  const pass = document.getElementById('loginPassword').value;
-  
-  if(phone.length !== 11){
-    showToast('Lütfen 11 haneli telefon numaranızı girin','error');
-    return;
-  }
-  if(!pass){
-    showToast('Lütfen şifrenizi girin','error');
-    return;
-  }
-  
-  const users = getUsers();
-  const user = users.find(u => u.phone === phone);
-  
-  if(!user){
-    showToast('Bu telefon numarası kayıtlı değil','error');
-    return;
-  }
-  if(user.password !== pass){
-    showToast('Şifre hatalı','error');
-    return;
-  }
-  
-  currentUser = user;
-  localStorage.setItem('pupaUser', JSON.stringify(user));
-  closeLogin();
-  renderTopbar();
-  showToast(`✅ Hoş geldiniz!`,'success');
+  const phone=document.getElementById('loginPhone').value.trim();
+  const pass=document.getElementById('loginPassword').value;
+  if(phone.length!==11){showToast('Lütfen 11 haneli telefon numaranızı girin','error');return;}
+  if(!pass){showToast('Lütfen şifrenizi girin','error');return;}
+  const users=getUsers();
+  const user=users.find(u=>u.phone===phone);
+  if(!user){showToast('Bu telefon numarası kayıtlı değil','error');return;}
+  if(user.password!==pass){showToast('Şifre hatalı','error');return;}
+  currentUser=user;
+  localStorage.setItem('pupaUser',JSON.stringify(user));
+  closeLogin();renderTopbar();
+  showToast('✅ Hoş geldiniz!','success');
 }
 
 function doRegister(){
-  const phone = document.getElementById('registerPhone').value.trim();
-  const address = document.getElementById('registerAddress').value.trim();
-  const pass = document.getElementById('registerPassword').value;
-  
-  if(phone.length !== 11){
-    showToast('Lütfen 11 haneli telefon numaranızı girin','error');
-    return;
-  }
-  if(!address){
-    showToast('Lütfen kargo adresinizi girin','error');
-    return;
-  }
-  if(pass.length < 4){
-    showToast('Şifre en az 4 karakter olmalı','error');
-    return;
-  }
-  
-  const users = getUsers();
-  if(users.find(u => u.phone === phone)){
-    showToast('Bu telefon numarası zaten kayıtlı','error');
-    return;
-  }
-  
-  const newUser = {
-    phone,
-    address,
-    password: pass,
-    createdAt: new Date().toISOString()
-  };
-  
-  users.push(newUser);
-  saveUsers(users);
-  
-  currentUser = newUser;
-  localStorage.setItem('pupaUser', JSON.stringify(newUser));
-  closeLogin();
-  renderTopbar();
+  const phone=document.getElementById('registerPhone').value.trim();
+  const address=document.getElementById('registerAddress').value.trim();
+  const pass=document.getElementById('registerPassword').value;
+  if(phone.length!==11){showToast('Lütfen 11 haneli telefon numaranızı girin','error');return;}
+  if(!address){showToast('Lütfen kargo adresinizi girin','error');return;}
+  if(pass.length<4){showToast('Şifre en az 4 karakter olmalı','error');return;}
+  const users=getUsers();
+  if(users.find(u=>u.phone===phone)){showToast('Bu telefon numarası zaten kayıtlı','error');return;}
+  const newUser={phone,address,password:pass,createdAt:new Date().toISOString()};
+  users.push(newUser);saveUsers(users);
+  currentUser=newUser;
+  localStorage.setItem('pupaUser',JSON.stringify(newUser));
+  closeLogin();renderTopbar();
   showToast('✅ Üyeliğiniz oluşturuldu!','success');
 }
 
 function continueAsGuest(){
-  currentUser = 'guest';
-  localStorage.setItem('pupaUser', JSON.stringify('guest'));
-  closeLogin();
-  renderTopbar();
+  currentUser='guest';
+  localStorage.setItem('pupaUser',JSON.stringify('guest'));
+  closeLogin();renderTopbar();
   showToast('Misafir olarak devam ediyorsunuz','info');
 }
 
 function doLogout(){
-  currentUser = null;
+  currentUser=null;
   localStorage.removeItem('pupaUser');
   renderTopbar();
   showToast('Çıkış yapıldı','info');
 }
 
 function showAddress(){
-  if(currentUser && currentUser.address){
-    showToast('📍 ' + currentUser.address);
-  }else{
-    showToast('Adres bilgisi bulunamadı','error');
-  }
+  if(currentUser && currentUser.address) showToast('📍 '+currentUser.address);
+  else showToast('Adres bilgisi bulunamadı','error');
 }
 
 /* ============================================
@@ -835,8 +794,7 @@ function renderCategories(){
       <div class="cat-img"><img src="${c.img}" alt="${c.name}" loading="lazy"></div>
       <h3>${c.name}</h3>
       <div class="link">Ürünleri İncele <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
 
 function renderProducts(list){
@@ -854,10 +812,9 @@ function renderProducts(list){
       <div class="product-info">
         <h3>${p.name}</h3>
         <div class="desc">${p.desc}</div>
-        ${p.price ? `<div class="price">${p.price.toLocaleString('tr-TR')} TL${p.kdv ? ' <span class="kdv">(+KDV)</span>' : ''}</div>` : ''}
+        ${p.price ? `<div class="price">${p.price.toLocaleString('tr-TR')} TL${p.kdv ? ' <span class="kdv">(+KDV)</span>' : ''}</div>` : '<div class="price sorunuz">Fiyat için sorunuz</div>'}
       </div>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
 
 /* ============================================
@@ -885,9 +842,21 @@ function filterCat(cat,el){
     'flap-180-zr':'Flap Disk 180x22 - ZR (Zirkonyum)',
     'flap-180-cr':'Flap Disk 180x22 - CR (Seramik)',
     'fiber-disk':'Fiber Disk Zımpara',
+    'taban-516-76':'5/16" Orbital Taban - Çap 76 mm',
+    'taban-516-100':'5/16" Orbital Taban - Çap 100 mm',
+    'taban-516-115':'5/16" Orbital Taban - Çap 115 mm',
+    'taban-516-125':'5/16" Orbital Taban - Çap 125 mm',
+    'taban-516-150':'5/16" Orbital Taban - Çap 150 mm',
+    'taban-516-180':'5/16" Orbital Taban - Çap 180 mm',
+    'taban-m14-100':'M14 EVA Taban - Çap 100 mm',
+    'taban-m14-115':'M14 EVA Taban - Çap 115 mm',
+    'taban-m14-125':'M14 EVA Taban - Çap 125 mm',
+    'taban-m14-150':'M14 EVA Taban - Çap 150 mm',
+    'taban-m14-180':'M14 EVA Taban - Çap 180 mm',
+    'taban-ara-10':'Ara Taban - 10 mm Soft',
+    'taban-ara-6':'Ara Taban - 6 mm Soft',
     'pasta-marine':'Pasta & Polisaj - MARİNE GRUBU',
-    'pasta-oto':'Pasta & Polisaj - OTO GRUBU',
-    aksesuar:'Aksesuar Ürünleri'
+    'pasta-oto':'Pasta & Polisaj - OTO GRUBU'
   };
   document.getElementById('sectionTitle').textContent=titles[cat]||'Ürünler';
 
@@ -898,14 +867,12 @@ function filterCat(cat,el){
       <button class="filter-btn ${cat==='kuzu-postu'?'active':''}" onclick="filterCat('kuzu-postu')">Tümü</button>
       <button class="filter-btn ${cat==='polisaj-marine'?'active':''}" onclick="filterCat('polisaj-marine')">MARİNE GRUBU</button>
       <button class="filter-btn ${cat==='polisaj-oto'?'active':''}" onclick="filterCat('polisaj-oto')">OTO GRUBU</button>
-      <button class="filter-btn ${cat==='polisaj-inox'?'active':''}" onclick="filterCat('polisaj-inox')">İNOX & PASLANMAZ</button>
-    `;
+      <button class="filter-btn ${cat==='polisaj-inox'?'active':''}" onclick="filterCat('polisaj-inox')">İNOX & PASLANMAZ</button>`;
   }else if(cat==='pasta-marine'||cat==='pasta-oto'){
     filterBox.style.display='flex';
     filterBox.innerHTML=`
       <button class="filter-btn ${cat==='pasta-marine'?'active':''}" onclick="filterCat('pasta-marine')">MARİNE GRUBU</button>
-      <button class="filter-btn ${cat==='pasta-oto'?'active':''}" onclick="filterCat('pasta-oto')">OTO GRUBU</button>
-    `;
+      <button class="filter-btn ${cat==='pasta-oto'?'active':''}" onclick="filterCat('pasta-oto')">OTO GRUBU</button>`;
   }else{
     filterBox.style.display='none';
     filterBox.innerHTML='';
@@ -920,16 +887,9 @@ function filterCat(cat,el){
   document.getElementById('productsSection').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
-function showHome(){
-  document.getElementById('heroSection').scrollIntoView({behavior:'smooth'});
-  filterCat('all');
-}
+function showHome(){document.getElementById('heroSection').scrollIntoView({behavior:'smooth'});filterCat('all');}
 
-/* ============================================
-   ARAMA
-============================================ */
 function handleSearch(e){if(e.key==='Enter')performSearch();}
-
 function performSearch(){
   const q=document.getElementById('searchInput').value.toLowerCase().trim();
   if(!q){filterCat('all');return;}
@@ -940,9 +900,6 @@ function performSearch(){
   document.getElementById('productsSection').scrollIntoView({behavior:'smooth'});
 }
 
-/* ============================================
-   TOAST
-============================================ */
 function showToast(msg,type='info'){
   const t=document.getElementById('toast');
   t.textContent=msg;
@@ -951,20 +908,9 @@ function showToast(msg,type='info'){
   setTimeout(()=>t.classList.remove('show'),2500);
 }
 
-/* ============================================
-   OVERLAY DIŞINA TIKLAYINCA KAPAT
-============================================ */
-document.getElementById('loginOverlay').addEventListener('click',function(e){
-  if(e.target === this) closeLogin();
-});
+document.getElementById('loginOverlay').addEventListener('click',function(e){if(e.target===this)closeLogin();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLogin();});
 
-document.addEventListener('keydown',function(e){
-  if(e.key === 'Escape') closeLogin();
-});
-
-/* ============================================
-   BAŞLAT
-============================================ */
 renderCategories();
 renderProducts(products.slice(0,12));
 renderTopbar();
