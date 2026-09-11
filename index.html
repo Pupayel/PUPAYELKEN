@@ -57,27 +57,37 @@ body{background:#fff;color:#0f2a4a}
 .nav-cat:hover{background:var(--accent-hover)}
 .nav-cat svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2.2}
 .nav-links{display:flex;align-items:center;height:100%;margin-left:8px}
-.nav-links a{color:#fff;text-decoration:none;padding:0 20px;height:100%;display:flex;align-items:center;font-size:13.5px;font-weight:500;opacity:.92;cursor:pointer;transition:.2s;gap:6px;position:relative}
-.nav-links a:hover{opacity:1;color:var(--accent)}
-.nav-links a.active{color:var(--accent);opacity:1}
-.nav-links a svg{width:10px;height:10px;stroke:currentColor;fill:none;stroke-width:2.5;opacity:.7}
+.nav-links > a{color:#fff;text-decoration:none;padding:0 20px;height:100%;display:flex;align-items:center;font-size:13.5px;font-weight:500;opacity:.92;cursor:pointer;transition:.2s;gap:6px;position:relative}
+.nav-links > a:hover{opacity:1;color:var(--accent)}
+.nav-links > a.active{color:var(--accent);opacity:1}
+.nav-links > a svg{width:10px;height:10px;stroke:currentColor;fill:none;stroke-width:2.5;opacity:.7}
 
-/* DROPDOWN */
+/* DROPDOWN - Ana */
 .dropdown{position:relative;height:100%;display:flex;align-items:center}
-.dropdown > a{padding:0 20px;height:100%;display:flex;align-items:center}
+.dropdown > a{padding:0 20px;height:100%;display:flex;align-items:center;gap:6px;color:#fff;font-size:13.5px;font-weight:500;opacity:.92;cursor:pointer;transition:.2s}
+.dropdown:hover > a{opacity:1;color:var(--accent)}
+.dropdown > a svg{width:10px;height:10px;stroke:currentColor;fill:none;stroke-width:2.5;opacity:.7}
 .dropdown-menu{position:absolute;top:100%;left:0;background:#fff;border-radius:0 0 8px 8px;box-shadow:0 15px 35px rgba(15,42,74,.15);min-width:280px;opacity:0;visibility:hidden;transform:translateY(-10px);transition:.25s;padding:8px 0;z-index:200}
 .dropdown:hover .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}
-.dropdown-item{padding:12px 22px;color:#0f2a4a;font-size:13.5px;font-weight:600;cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.dropdown-item{padding:12px 22px;color:#0f2a4a;font-size:13.5px;font-weight:600;cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:space-between;gap:10px;white-space:nowrap}
 .dropdown-item:hover{background:#f7f9fb;color:var(--accent)}
-.dropdown-item svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.5}
+.dropdown-item svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.5;flex-shrink:0}
+
+/* DROPDOWN - Alt (2. seviye) */
 .dropdown-sub{position:relative}
-.dropdown-sub .submenu{position:absolute;left:100%;top:0;background:#fff;border-radius:8px;box-shadow:0 15px 35px rgba(15,42,74,.15);min-width:220px;opacity:0;visibility:hidden;transform:translateX(-10px);transition:.25s;padding:8px 0}
-.dropdown-sub:hover .submenu{opacity:1;visibility:visible;transform:translateX(0)}
+.dropdown-sub > .dropdown-item{width:100%}
+.dropdown-sub .submenu{position:absolute;left:100%;top:0;background:#fff;border-radius:8px;box-shadow:0 15px 35px rgba(15,42,74,.15);min-width:220px;opacity:0;visibility:hidden;transform:translateX(-10px);transition:.25s;padding:8px 0;z-index:210}
+.dropdown-sub:hover > .submenu{opacity:1;visibility:visible;transform:translateX(0)}
 .dropdown-sub:hover{background:#f7f9fb}
-.dropdown-sub:hover > .dropdown-item{color:var(--accent)}
-/* 3. seviye submenu */
-.submenu .dropdown-sub .submenu{left:100%;top:0}
-.submenu .dropdown-sub:hover{background:#f7f9fb}
+.dropdown-sub:hover > .dropdown-item{color:var(--accent);background:#f7f9fb}
+
+/* DROPDOWN - 3. seviye */
+.dropdown-sub-sub{position:relative}
+.dropdown-sub-sub > .dropdown-item{width:100%}
+.dropdown-sub-sub .submenu-3{position:absolute;left:100%;top:0;background:#fff;border-radius:8px;box-shadow:0 15px 35px rgba(15,42,74,.15);min-width:200px;opacity:0;visibility:hidden;transform:translateX(-10px);transition:.25s;padding:8px 0;z-index:220}
+.dropdown-sub-sub:hover > .submenu-3{opacity:1;visibility:visible;transform:translateX(0)}
+.dropdown-sub-sub:hover{background:#f7f9fb}
+.dropdown-sub-sub:hover > .dropdown-item{color:var(--accent);background:#f7f9fb}
 
 /* HERO */
 .hero{position:relative;height:480px;overflow:hidden;background:#0f2a4a}
@@ -186,7 +196,7 @@ body{background:#fff;color:#0f2a4a}
 .products-grid{grid-template-columns:repeat(2,1fr)}
 .trust-inner{grid-template-columns:1fr}
 .footer-top{grid-template-columns:1fr}
-.nav-links a{padding:0 12px;font-size:12px}
+.nav-links > a{padding:0 12px;font-size:12px}
 }
 </style>
 </head>
@@ -259,45 +269,33 @@ body{background:#fff;color:#0f2a4a}
       <div class="dropdown">
         <a>Zımpara <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
         <div class="dropdown-menu">
+          <div class="dropdown-item" onclick="filterCat('zimpara-yesil')">Yeşil Cırt & Velcro</div>
+          <div class="dropdown-item" onclick="filterCat('zimpara-gold')">Gold Cırt & Velcro</div>
           <div class="dropdown-sub">
-            <div class="dropdown-item">Orbital & Cırt Zımpara <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+            <div class="dropdown-item">Flap Disk 115x22 <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
             <div class="submenu">
-              <div class="dropdown-item" onclick="filterCat('zimpara-yesil')">Yeşil Cırt & Velcro</div>
-              <div class="dropdown-item" onclick="filterCat('zimpara-gold')">Gold Cırt & Velcro</div>
+              <div class="dropdown-item" onclick="filterCat('flap-115-ao')">AO (P40-60-80)</div>
+              <div class="dropdown-item" onclick="filterCat('flap-115-zr')">ZR (P40-60-80)</div>
+              <div class="dropdown-item" onclick="filterCat('flap-115-cr')">CR (P40-60-80)</div>
             </div>
           </div>
           <div class="dropdown-sub">
-            <div class="dropdown-item">Flap Disk <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+            <div class="dropdown-item">Flap Disk 125x22 <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
             <div class="submenu">
-              <div class="dropdown-sub">
-                <div class="dropdown-item">Flap 115x22 <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
-                <div class="submenu">
-                  <div class="dropdown-item" onclick="filterCat('flap-115-zr')">ZR P40-60-80</div>
-                  <div class="dropdown-item" onclick="filterCat('flap-115-ao')">AO P40-60-80</div>
-                  <div class="dropdown-item" onclick="filterCat('flap-115-cr')">CR P40-60-80</div>
-                </div>
-              </div>
-              <div class="dropdown-sub">
-                <div class="dropdown-item">Flap 125x22 <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
-                <div class="submenu">
-                  <div class="dropdown-item" onclick="filterCat('flap-125-zr')">ZR P40-60-80</div>
-                  <div class="dropdown-item" onclick="filterCat('flap-125-ao')">AO P40-60-80</div>
-                  <div class="dropdown-item" onclick="filterCat('flap-125-cr')">CR P40-60-80</div>
-                </div>
-              </div>
-              <div class="dropdown-sub">
-                <div class="dropdown-item">Flap 180x22 <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
-                <div class="submenu">
-                  <div class="dropdown-item" onclick="filterCat('flap-180-zr')">ZR P40-60-80</div>
-                  <div class="dropdown-item" onclick="filterCat('flap-180-ao')">AO P40-60-80</div>
-                  <div class="dropdown-item" onclick="filterCat('flap-180-cr')">CR P40-60-80</div>
-                </div>
-              </div>
+              <div class="dropdown-item" onclick="filterCat('flap-125-ao')">AO (P40-60-80)</div>
+              <div class="dropdown-item" onclick="filterCat('flap-125-zr')">ZR (P40-60-80)</div>
+              <div class="dropdown-item" onclick="filterCat('flap-125-cr')">CR (P40-60-80)</div>
             </div>
           </div>
           <div class="dropdown-sub">
-            <div class="dropdown-item" onclick="filterCat('fiber-disk')">Fiber Disk <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+            <div class="dropdown-item">Flap Disk 180x22 <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+            <div class="submenu">
+              <div class="dropdown-item" onclick="filterCat('flap-180-ao')">AO (P40-60-80)</div>
+              <div class="dropdown-item" onclick="filterCat('flap-180-zr')">ZR (P40-60-80)</div>
+              <div class="dropdown-item" onclick="filterCat('flap-180-cr')">CR (P40-60-80)</div>
+            </div>
           </div>
+          <div class="dropdown-item" onclick="filterCat('fiber-disk')">Fiber Disk</div>
         </div>
       </div>
       <div class="dropdown">
@@ -383,7 +381,7 @@ body{background:#fff;color:#0f2a4a}
         <li onclick="filterCat('polisaj-oto')">Polisaj Keçe - Oto</li>
         <li onclick="filterCat('zimpara-yesil')">Yeşil Cırt & Velcro</li>
         <li onclick="filterCat('zimpara-gold')">Gold Cırt & Velcro</li>
-        <li onclick="filterCat('flap-115-zr')">Flap Disk 115</li>
+        <li onclick="filterCat('flap-115-ao')">Flap Disk 115x22</li>
         <li onclick="filterCat('pasta-marine')">Pasta - Marine</li>
       </ul></div>
       <div><h4>Kurumsal</h4><ul><li>Hakkımızda</li><li>İletişim</li><li>Kargo & Teslimat</li><li>İade & Değişim</li></ul></div>
@@ -414,8 +412,8 @@ const categories=[
   {slug:"kuzu-postu",name:"Polisaj Keçe Çeşitleri",img:KUZU_POSTU},
   {slug:"kece",name:"Keçe",img:"https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&q=80"},
   {slug:"zimpara-yesil",name:"Zımpara",img:GREEN_SAND},
-  {slug:"flap-115-zr",name:"Flap Disk",img:FLAP_ZR},
-  {slug:"flap-ao",name:"Pasta & Polisaj",img:"https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=400&q=80"},
+  {slug:"flap-115-ao",name:"Flap Disk",img:FLAP_AO},
+  {slug:"pasta-marine",name:"Pasta & Polisaj",img:"https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=400&q=80"},
   {slug:"aksesuar",name:"Aksesuarlar",img:"https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=400&q=80"}
 ];
 
@@ -423,7 +421,7 @@ const categories=[
    ÜRÜNLER
 ============================================ */
 const products=[
-  // POLİSAJ KEÇE - MARİNE GRUBU
+  // POLİSAJ KEÇE - MARİNE
   {id:30,name:"Kuzu Postu Polisaj Keçesi 150 mm",desc:"Marine grubu - Deniz araçları için",cat:"polisaj-marine",price:275,img:KUZU_POSTU},
   {id:31,name:"Kuzu Postu Polisaj Keçesi 180 mm",desc:"Marine grubu - Profesyonel seri",cat:"polisaj-marine",price:325,img:KUZU_POSTU},
   {id:32,name:"Kuzu Postu Polisaj Keçesi 230 mm",desc:"Marine grubu - Geniş yüzey polisajı",cat:"polisaj-marine",price:420,img:KUZU_POSTU},
@@ -433,7 +431,7 @@ const products=[
   {id:45,name:"Tabak Keçe İpli 180 mm (Düz)",desc:"Marine grubu - Düz tabak keçe",cat:"polisaj-marine",price:550,img:BEYAZ_KUZU},
   {id:46,name:"Tabak Keçe İpli 180 mm (Aplikatörlü)",desc:"Marine grubu - Aplikatörlü tabak keçe",cat:"polisaj-marine",price:650,img:BEYAZ_KUZU},
 
-  // POLİSAJ KEÇE - OTO GRUBU
+  // POLİSAJ KEÇE - OTO
   {id:33,name:"Kuzu Postu Polisaj Keçesi 150 mm",desc:"Oto grubu - Araç polisajı için",cat:"polisaj-oto",price:275,img:KUZU_POSTU},
   {id:34,name:"Kuzu Postu Polisaj Keçesi 180 mm",desc:"Oto grubu - Profesyonel seri",cat:"polisaj-oto",price:325,img:KUZU_POSTU},
   {id:35,name:"Kuzu Postu Polisaj Keçesi 230 mm",desc:"Oto grubu - Geniş yüzey polisajı",cat:"polisaj-oto",price:420,img:KUZU_POSTU},
@@ -441,16 +439,16 @@ const products=[
   {id:43,name:"Beyaz Kuzu Postu Polisaj Keçesi 180 mm",desc:"Oto grubu - Beyaz keçe",cat:"polisaj-oto",price:325,img:BEYAZ_KUZU},
   {id:44,name:"Beyaz Kuzu Postu Polisaj Keçesi 230 mm",desc:"Oto grubu - Beyaz keçe",cat:"polisaj-oto",price:420,img:BEYAZ_KUZU},
 
-  // PASTA & POLİSAJ - MARİNE GRUBU
+  // PASTA - MARİNE
   {id:80,name:"Jelkot Pastası 5 kg",desc:"Marine grubu - Profesyonel jelkot pastası 5 kg",cat:"pasta-marine",price:6500,kdv:true,img:"https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=400&q=80"},
   {id:81,name:"Jelkot Pastası 1.2 kg",desc:"Marine grubu - Profesyonel jelkot pastası 1.2 kg",cat:"pasta-marine",price:1750,kdv:true,img:"https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=400&q=80"},
 
-  // PASTA & POLİSAJ - OTO GRUBU (fiyatsız)
+  // PASTA - OTO (fiyatsız)
   {id:50,name:"Pasta Seti",desc:"Oto grubu - Profesyonel sonuç",cat:"pasta-oto",img:"https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=400&q=80"},
   {id:51,name:"Hare Giderici Pasta 500ml",desc:"Oto grubu - İnce çizik giderici",cat:"pasta-oto",img:"https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=400&q=80"},
   {id:52,name:"Seramik Kaplama Cila",desc:"Oto grubu - 9H sertlik koruma",cat:"pasta-oto",img:"https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=400&q=80&sat=-10"},
 
-  // ZIMPARA - YEŞİL CIRT & VELCRO
+  // ZIMPARA - YEŞİL
   {id:1,name:"Yeşil Cırt & Velcro 40P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-yesil",price:18,kdv:true,img:GREEN_SAND},
   {id:2,name:"Yeşil Cırt & Velcro 60P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-yesil",price:18,kdv:true,img:GREEN_SAND},
   {id:3,name:"Yeşil Cırt & Velcro 80P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-yesil",price:16.5,kdv:true,img:GREEN_SAND},
@@ -470,7 +468,7 @@ const products=[
   {id:17,name:"Yeşil Cırt & Velcro 2000P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-yesil",price:18,kdv:true,img:GREEN_SAND},
   {id:18,name:"Yeşil Cırt & Velcro Seti 40-2000P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-yesil",price:520,kdv:true,img:GREEN_SAND},
 
-  // ZIMPARA - GOLD CIRT & VELCRO
+  // ZIMPARA - GOLD
   {id:101,name:"Gold Cırt & Velcro 40P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-gold",price:18,kdv:true,img:GOLD_SAND},
   {id:102,name:"Gold Cırt & Velcro 60P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-gold",price:18,kdv:true,img:GOLD_SAND},
   {id:103,name:"Gold Cırt & Velcro 80P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-gold",price:16.5,kdv:true,img:GOLD_SAND},
@@ -485,35 +483,41 @@ const products=[
   {id:112,name:"Gold Cırt & Velcro 600P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-gold",price:16.5,kdv:true,img:GOLD_SAND},
   {id:113,name:"Gold Cırt & Velcro 800P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-gold",price:16.5,kdv:true,img:GOLD_SAND},
 
-  // FLAP DİSK - 115x22
-  {id:200,name:"Flap Disk 115x22 ZR P40",desc:"Zirkonyum - P40 - Sorunuz",cat:"flap-115-zr",img:FLAP_ZR},
-  {id:201,name:"Flap Disk 115x22 ZR P60",desc:"Zirkonyum - P60 - Sorunuz",cat:"flap-115-zr",img:FLAP_ZR},
-  {id:202,name:"Flap Disk 115x22 ZR P80",desc:"Zirkonyum - P80 - Sorunuz",cat:"flap-115-zr",img:FLAP_ZR},
-  {id:203,name:"Flap Disk 115x22 AO P40",desc:"Alüminyum Oksit - P40 - Sorunuz",cat:"flap-115-ao",img:FLAP_AO},
-  {id:204,name:"Flap Disk 115x22 AO P60",desc:"Alüminyum Oksit - P60 - Sorunuz",cat:"flap-115-ao",img:FLAP_AO},
-  {id:205,name:"Flap Disk 115x22 AO P80",desc:"Alüminyum Oksit - P80 - Sorunuz",cat:"flap-115-ao",img:FLAP_AO},
+  // FLAP 115x22 - AO
+  {id:200,name:"Flap Disk 115x22 AO P40",desc:"Alüminyum Oksit - P40 - Sorunuz",cat:"flap-115-ao",img:FLAP_AO},
+  {id:201,name:"Flap Disk 115x22 AO P60",desc:"Alüminyum Oksit - P60 - Sorunuz",cat:"flap-115-ao",img:FLAP_AO},
+  {id:202,name:"Flap Disk 115x22 AO P80",desc:"Alüminyum Oksit - P80 - Sorunuz",cat:"flap-115-ao",img:FLAP_AO},
+  // FLAP 115x22 - ZR
+  {id:203,name:"Flap Disk 115x22 ZR P40",desc:"Zirkonyum - P40 - Sorunuz",cat:"flap-115-zr",img:FLAP_ZR},
+  {id:204,name:"Flap Disk 115x22 ZR P60",desc:"Zirkonyum - P60 - Sorunuz",cat:"flap-115-zr",img:FLAP_ZR},
+  {id:205,name:"Flap Disk 115x22 ZR P80",desc:"Zirkonyum - P80 - Sorunuz",cat:"flap-115-zr",img:FLAP_ZR},
+  // FLAP 115x22 - CR
   {id:206,name:"Flap Disk 115x22 CR P40",desc:"Seramik - P40 - Sorunuz",cat:"flap-115-cr",img:FLAP_CR},
   {id:207,name:"Flap Disk 115x22 CR P60",desc:"Seramik - P60 - Sorunuz",cat:"flap-115-cr",img:FLAP_CR},
   {id:208,name:"Flap Disk 115x22 CR P80",desc:"Seramik - P80 - Sorunuz",cat:"flap-115-cr",img:FLAP_CR},
 
-  // FLAP DİSK - 125x22
-  {id:210,name:"Flap Disk 125x22 ZR P40",desc:"Zirkonyum - P40 - Sorunuz",cat:"flap-125-zr",img:FLAP_ZR},
-  {id:211,name:"Flap Disk 125x22 ZR P60",desc:"Zirkonyum - P60 - Sorunuz",cat:"flap-125-zr",img:FLAP_ZR},
-  {id:212,name:"Flap Disk 125x22 ZR P80",desc:"Zirkonyum - P80 - Sorunuz",cat:"flap-125-zr",img:FLAP_ZR},
-  {id:213,name:"Flap Disk 125x22 AO P40",desc:"Alüminyum Oksit - P40 - Sorunuz",cat:"flap-125-ao",img:FLAP_AO},
-  {id:214,name:"Flap Disk 125x22 AO P60",desc:"Alüminyum Oksit - P60 - Sorunuz",cat:"flap-125-ao",img:FLAP_AO},
-  {id:215,name:"Flap Disk 125x22 AO P80",desc:"Alüminyum Oksit - P80 - Sorunuz",cat:"flap-125-ao",img:FLAP_AO},
+  // FLAP 125x22 - AO
+  {id:210,name:"Flap Disk 125x22 AO P40",desc:"Alüminyum Oksit - P40 - Sorunuz",cat:"flap-125-ao",img:FLAP_AO},
+  {id:211,name:"Flap Disk 125x22 AO P60",desc:"Alüminyum Oksit - P60 - Sorunuz",cat:"flap-125-ao",img:FLAP_AO},
+  {id:212,name:"Flap Disk 125x22 AO P80",desc:"Alüminyum Oksit - P80 - Sorunuz",cat:"flap-125-ao",img:FLAP_AO},
+  // FLAP 125x22 - ZR
+  {id:213,name:"Flap Disk 125x22 ZR P40",desc:"Zirkonyum - P40 - Sorunuz",cat:"flap-125-zr",img:FLAP_ZR},
+  {id:214,name:"Flap Disk 125x22 ZR P60",desc:"Zirkonyum - P60 - Sorunuz",cat:"flap-125-zr",img:FLAP_ZR},
+  {id:215,name:"Flap Disk 125x22 ZR P80",desc:"Zirkonyum - P80 - Sorunuz",cat:"flap-125-zr",img:FLAP_ZR},
+  // FLAP 125x22 - CR
   {id:216,name:"Flap Disk 125x22 CR P40",desc:"Seramik - P40 - Sorunuz",cat:"flap-125-cr",img:FLAP_CR},
   {id:217,name:"Flap Disk 125x22 CR P60",desc:"Seramik - P60 - Sorunuz",cat:"flap-125-cr",img:FLAP_CR},
   {id:218,name:"Flap Disk 125x22 CR P80",desc:"Seramik - P80 - Sorunuz",cat:"flap-125-cr",img:FLAP_CR},
 
-  // FLAP DİSK - 180x22
-  {id:220,name:"Flap Disk 180x22 ZR P40",desc:"Zirkonyum - P40 - Sorunuz",cat:"flap-180-zr",img:FLAP_ZR},
-  {id:221,name:"Flap Disk 180x22 ZR P60",desc:"Zirkonyum - P60 - Sorunuz",cat:"flap-180-zr",img:FLAP_ZR},
-  {id:222,name:"Flap Disk 180x22 ZR P80",desc:"Zirkonyum - P80 - Sorunuz",cat:"flap-180-zr",img:FLAP_ZR},
-  {id:223,name:"Flap Disk 180x22 AO P40",desc:"Alüminyum Oksit - P40 - Sorunuz",cat:"flap-180-ao",img:FLAP_AO},
-  {id:224,name:"Flap Disk 180x22 AO P60",desc:"Alüminyum Oksit - P60 - Sorunuz",cat:"flap-180-ao",img:FLAP_AO},
-  {id:225,name:"Flap Disk 180x22 AO P80",desc:"Alüminyum Oksit - P80 - Sorunuz",cat:"flap-180-ao",img:FLAP_AO},
+  // FLAP 180x22 - AO
+  {id:220,name:"Flap Disk 180x22 AO P40",desc:"Alüminyum Oksit - P40 - Sorunuz",cat:"flap-180-ao",img:FLAP_AO},
+  {id:221,name:"Flap Disk 180x22 AO P60",desc:"Alüminyum Oksit - P60 - Sorunuz",cat:"flap-180-ao",img:FLAP_AO},
+  {id:222,name:"Flap Disk 180x22 AO P80",desc:"Alüminyum Oksit - P80 - Sorunuz",cat:"flap-180-ao",img:FLAP_AO},
+  // FLAP 180x22 - ZR
+  {id:223,name:"Flap Disk 180x22 ZR P40",desc:"Zirkonyum - P40 - Sorunuz",cat:"flap-180-zr",img:FLAP_ZR},
+  {id:224,name:"Flap Disk 180x22 ZR P60",desc:"Zirkonyum - P60 - Sorunuz",cat:"flap-180-zr",img:FLAP_ZR},
+  {id:225,name:"Flap Disk 180x22 ZR P80",desc:"Zirkonyum - P80 - Sorunuz",cat:"flap-180-zr",img:FLAP_ZR},
+  // FLAP 180x22 - CR
   {id:226,name:"Flap Disk 180x22 CR P40",desc:"Seramik - P40 - Sorunuz",cat:"flap-180-cr",img:FLAP_CR},
   {id:227,name:"Flap Disk 180x22 CR P60",desc:"Seramik - P60 - Sorunuz",cat:"flap-180-cr",img:FLAP_CR},
   {id:228,name:"Flap Disk 180x22 CR P80",desc:"Seramik - P80 - Sorunuz",cat:"flap-180-cr",img:FLAP_CR},
@@ -566,7 +570,7 @@ function renderProducts(list){
    FİLTRELEME
 ============================================ */
 function filterCat(cat,el){
-  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
+  document.querySelectorAll('.nav-links > a').forEach(a=>a.classList.remove('active'));
   if(el)el.classList.add('active');
   const titles={
     all:'Yeni Gelen Ürünler',
@@ -577,19 +581,18 @@ function filterCat(cat,el){
     kece:'Keçe Ürünleri',
     'zimpara-yesil':'Yeşil Cırt & Velcro Zımpara',
     'zimpara-gold':'Gold Cırt & Velcro Zımpara',
-    'flap-115-zr':'Flap Disk 115x22 - ZR (Zirkonyum)',
     'flap-115-ao':'Flap Disk 115x22 - AO (Alüminyum Oksit)',
+    'flap-115-zr':'Flap Disk 115x22 - ZR (Zirkonyum)',
     'flap-115-cr':'Flap Disk 115x22 - CR (Seramik)',
-    'flap-125-zr':'Flap Disk 125x22 - ZR (Zirkonyum)',
     'flap-125-ao':'Flap Disk 125x22 - AO (Alüminyum Oksit)',
+    'flap-125-zr':'Flap Disk 125x22 - ZR (Zirkonyum)',
     'flap-125-cr':'Flap Disk 125x22 - CR (Seramik)',
-    'flap-180-zr':'Flap Disk 180x22 - ZR (Zirkonyum)',
     'flap-180-ao':'Flap Disk 180x22 - AO (Alüminyum Oksit)',
+    'flap-180-zr':'Flap Disk 180x22 - ZR (Zirkonyum)',
     'flap-180-cr':'Flap Disk 180x22 - CR (Seramik)',
     'fiber-disk':'Fiber Disk Zımpara',
     'pasta-marine':'Pasta & Polisaj - MARİNE GRUBU',
     'pasta-oto':'Pasta & Polisaj - OTO GRUBU',
-    'flap':'Flap Disk Ürünleri',
     aksesuar:'Aksesuar Ürünleri'
   };
   document.getElementById('sectionTitle').textContent=titles[cat]||'Ürünler';
