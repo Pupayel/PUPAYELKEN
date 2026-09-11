@@ -120,6 +120,7 @@ body{background:#fff;color:#0f2a4a}
 .product-info h3{font-size:13.5px;font-weight:700;color:#0f2a4a;margin-bottom:5px;line-height:1.35}
 .product-info .desc{font-size:11.5px;color:#7c8794;line-height:1.4}
 .product-info .price{font-size:16px;font-weight:800;color:#f58220;margin-top:10px;letter-spacing:-.2px}
+.product-info .price .kdv{font-size:11px;font-weight:600;color:#7c8794;margin-left:2px;letter-spacing:0}
 
 /* FOOTER */
 .footer{background:#0a1e36;color:#fff;padding:60px 0 0;margin-top:60px}
@@ -325,26 +326,24 @@ const categories=[
 ============================================ */
 const products=[
   // ZIMPARA - 6 DELİKLİ YEŞİL VELCRO (40P → 2000P)
-    // ZIMPARA - 6 DELİKLİ YEŞİL VELCRO (40P → 2000P)
-  {id:1,name:"Yeşil Velcro Zımpara 40P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:18,img:GREEN_SAND},
-  {id:2,name:"Yeşil Velcro Zımpara 60P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:18,img:GREEN_SAND},
-  {id:3,name:"Yeşil Velcro Zımpara 80P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,img:GREEN_SAND},
-  {id:4,name:"Yeşil Velcro Zımpara 100P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,img:GREEN_SAND},
-  {id:5,name:"Yeşil Velcro Zımpara 120P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,img:GREEN_SAND},
-  {id:6,name:"Yeşil Velcro Zımpara 150P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,img:GREEN_SAND},
-  {id:7,name:"Yeşil Velcro Zımpara 180P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,img:GREEN_SAND},
-  {id:8,name:"Yeşil Velcro Zımpara 220P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,img:GREEN_SAND},
-  {id:9,name:"Yeşil Velcro Zımpara 240P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,img:GREEN_SAND},
-  {id:10,name:"Yeşil Velcro Zımpara 320P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,img:GREEN_SAND},
-  {id:11,name:"Yeşil Velcro Zımpara 400P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,img:GREEN_SAND},
-  {id:12,name:"Yeşil Velcro Zımpara 600P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,img:GREEN_SAND},
-  {id:13,name:"Yeşil Velcro Zımpara 800P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,img:GREEN_SAND},
-  {id:14,name:"Yeşil Velcro Zımpara 1000P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:18,img:GREEN_SAND},
-  {id:15,name:"Yeşil Velcro Zımpara 1200P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:18,img:GREEN_SAND},
-  {id:16,name:"Yeşil Velcro Zımpara 1500P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:18,img:GREEN_SAND},
-  {id:17,name:"Yeşil Velcro Zımpara 2000P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:18,img:GREEN_SAND},
-  {id:18,name:"Yeşil Velcro Zımpara Seti 40-2000P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:520,img:GREEN_SAND},
-  // KUZU POSTU
+  {id:1,name:"Yeşil Velcro Zımpara 40P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:18,kdv:true,img:GREEN_SAND},
+  {id:2,name:"Yeşil Velcro Zımpara 60P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:18,kdv:true,img:GREEN_SAND},
+  {id:3,name:"Yeşil Velcro Zımpara 80P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,kdv:true,img:GREEN_SAND},
+  {id:4,name:"Yeşil Velcro Zımpara 100P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,kdv:true,img:GREEN_SAND},
+  {id:5,name:"Yeşil Velcro Zımpara 120P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,kdv:true,img:GREEN_SAND},
+  {id:6,name:"Yeşil Velcro Zımpara 150P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,kdv:true,img:GREEN_SAND},
+  {id:7,name:"Yeşil Velcro Zımpara 180P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,kdv:true,img:GREEN_SAND},
+  {id:8,name:"Yeşil Velcro Zımpara 220P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,kdv:true,img:GREEN_SAND},
+  {id:9,name:"Yeşil Velcro Zımpara 240P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,kdv:true,img:GREEN_SAND},
+  {id:10,name:"Yeşil Velcro Zımpara 320P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,kdv:true,img:GREEN_SAND},
+  {id:11,name:"Yeşil Velcro Zımpara 400P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,kdv:true,img:GREEN_SAND},
+  {id:12,name:"Yeşil Velcro Zımpara 600P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,kdv:true,img:GREEN_SAND},
+  {id:13,name:"Yeşil Velcro Zımpara 800P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:16.5,kdv:true,img:GREEN_SAND},
+  {id:14,name:"Yeşil Velcro Zımpara 1000P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:18,kdv:true,img:GREEN_SAND},
+  {id:15,name:"Yeşil Velcro Zımpara 1200P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:18,kdv:true,img:GREEN_SAND},
+  {id:16,name:"Yeşil Velcro Zımpara 1500P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:18,kdv:true,img:GREEN_SAND},
+  {id:17,name:"Yeşil Velcro Zımpara 2000P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:18,kdv:true,img:GREEN_SAND},
+  {id:18,name:"Yeşil Velcro Zımpara Seti 40-2000P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara",price:520,kdv:true,img:GREEN_SAND},  // KUZU POSTU
   {id:30,name:"Kuzu Postu Polisaj Keçesi 150 mm",desc:"Polisaj için ideal kalite",cat:"kuzu-postu",price:275,img:KUZU_POSTU},
   {id:31,name:"Kuzu Postu Polisaj Keçesi 180 mm",desc:"Profesyonel seri",cat:"kuzu-postu",price:325,img:KUZU_POSTU},
   {id:32,name:"Kuzu Postu Polisaj Keçesi 230 mm",desc:"Geniş yüzey polisajı",cat:"kuzu-postu",price:420,img:KUZU_POSTU},
@@ -396,7 +395,7 @@ function renderProducts(list){
       <div class="product-info">
         <h3>${p.name}</h3>
         <div class="desc">${p.desc}</div>
-        ${p.price ? `<div class="price">${p.price.toLocaleString('tr-TR')} TL</div>` : ''}
+                ${p.price ? `<div class="price">${p.price.toLocaleString('tr-TR')} TL${p.kdv ? ' <span class="kdv">(+KDV)</span>' : ''}</div>` : ''}
       </div>
     </div>
   `).join('');
