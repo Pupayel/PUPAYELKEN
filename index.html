@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pupa Yelken | Profesyonel Polisaj ve Zımpara Çözümleri</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+body{background:#fff;color:#0f2a4a}
+:root{--primary:#0f2a4a;--primary-mid:#1a3d68;--accent:#f58220;--accent-hover:#e07215;--dark:#0a1e36;--border:#e8ecf1;--muted:#7c8794}
+
+/* TOP BAR */
+.topbar{background:#0a1e36;color:#fff;font-size:12.5px;padding:10px 0}
+.topbar-inner{max-width:1360px;margin:0 auto;padding:0 32px;display:flex;justify-content:space-between;align-items:center}
+.topbar-left{display:flex;gap:32px;align-items:center}
+.topbar-left>div{display:flex;align-items:center;gap:8px;opacity:.92}
+.topbar-left>div svg{width:15px;height:15px;stroke:#fff;fill:none;stroke-width:1.8}
+.topbar-right{display:flex;align-items:center;gap:24px}
+.topbar-right a{color:#fff;text-decoration:none;display:flex;align-items:center;gap:8px;opacity:.95;font-size:12.5px;cursor:pointer}
+.topbar-right a svg{width:15px;height:15px;stroke:#fff;fill:none;stroke-width:1.8}
+.topbar-cart{display:flex;align-items:center;gap:8px;padding-left:22px;border-left:1px solid rgba(255,255,255,.18);cursor:pointer;font-size:12.5px}
+.topbar-cart svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:1.8}
+.topbar-cart .count{color:#f58220;font-weight:700}
+
+/* HEADER */
+.header{background:#fff;padding:22px 0}
+.header-inner{max-width:1360px;margin:0 auto;padding:0 32px;display:flex;align-items:center;gap:36px}
+.logo{display:flex;align-items:center;gap:14px;flex-shrink:0;cursor:pointer}
+.logo-mark{width:56px;height:56px;display:flex;align-items:center;justify-content:center}
+.logo-mark svg{width:56px;height:56px}
+.logo-text{display:flex;flex-direction:column;line-height:1}
+.logo-brand{font-size:28px;font-weight:900;color:#0f2a4a;letter-spacing:-.5px}
+.logo-brand span{color:#1a3d68;font-weight:900}
+.logo-tag{font-size:8.5px;color:#7c8794;letter-spacing:1.8px;margin-top:6px;font-weight:600}
+
+.search{flex:1;max-width:640px;position:relative}
+.search input{width:100%;padding:14px 60px 14px 22px;border:1px solid var(--border);border-radius:6px;font-size:13.5px;outline:none;background:#f7f9fb;transition:.2s}
+.search input:focus{border-color:var(--primary);background:#fff}
+.search input::placeholder{color:#9aa5b1}
+.search button{position:absolute;right:0;top:0;bottom:0;width:56px;background:var(--primary);border:none;border-radius:0 6px 6px 0;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.search button svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2.2}
+.search button:hover{background:var(--accent)}
+
+.contact{display:flex;align-items:center;gap:14px;padding-left:28px;border-left:1px solid var(--border);flex-shrink:0}
+.contact-icon{width:48px;height:48px;border:2px solid var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.contact-icon svg{width:20px;height:20px;stroke:var(--primary);fill:none;stroke-width:2}
+.contact-text{display:flex;flex-direction:column;line-height:1.3}
+.contact-text small{font-size:11px;color:#7c8794;font-weight:500}
+.contact-text strong{font-size:15px;color:#0f2a4a;font-weight:800;margin:2px 0}
+.contact-text span{font-size:10.5px;color:#7c8794}
+
+/* NAV */
+.nav{background:var(--primary)}
+.nav-inner{max-width:1360px;margin:0 auto;padding:0 32px;display:flex;align-items:center;height:52px}
+.nav-cat{background:var(--accent);height:100%;display:flex;align-items:center;gap:12px;font-weight:700;font-size:14px;color:#fff;cursor:pointer;margin-left:-32px;padding-left:32px;padding-right:26px;transition:.2s}
+.nav-cat:hover{background:var(--accent-hover)}
+.nav-cat svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2.2}
+.nav-links{display:flex;align-items:center;height:100%;margin-left:8px}
+.nav-links a{color:#fff;text-decoration:none;padding:0 20px;height:100%;display:flex;align-items:center;font-size:13.5px;font-weight:500;opacity:.92;cursor:pointer;transition:.2s;gap:6px}
+.nav-links a:hover{opacity:1;color:var(--accent)}
+.nav-links a.active{color:var(--accent);opacity:1}
+.nav-links a svg{width:10px;height:10px;stroke:currentColor;fill:none;stroke-width:2.5;opacity:.7}
+
+/* HERO */
+.hero{position:relative;height:480px;overflow:hidden;background:#0f2a4a}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=1600&q=80') center/cover;opacity:.55}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#0f2a4a 0%,rgba(15,42,74,.92) 32%,rgba(15,42,74,.35) 65%,rgba(15,42,74,.5) 100%);z-index:1}
+.hero-inner{position:relative;z-index:2;max-width:1360px;margin:0 auto;padding:0 32px;height:100%;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:60px}
+.hero-content{color:#fff;max-width:560px}
+.hero-tag{font-size:11px;letter-spacing:4px;font-weight:700;color:#f58220;margin-bottom:22px}
+.hero h1{font-size:52px;font-weight:900;line-height:1.08;margin-bottom:22px;letter-spacing:-1px}
+.hero h1 span{color:#3b82f6}
+.hero p{font-size:14.5px;line-height:1.65;opacity:.85;margin-bottom:32px;max-width:480px}
+.hero-btn{background:var(--accent);color:#fff;border:none;padding:16px 34px;border-radius:6px;font-size:14.5px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:10px;transition:.2s}
+.hero-btn:hover{background:var(--accent-hover);transform:translateX(3px)}
+.hero-btn svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.5}
+.hero-features{display:flex;flex-direction:column;gap:18px;align-items:flex-end}
+.hero-feat{display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,.08);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.15);padding:14px 20px;border-radius:10px;color:#fff;min-width:310px}
+.hero-feat-icon{width:42px;height:42px;border:1.5px solid rgba(255,255,255,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hero-feat-icon svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:1.8}
+.hero-feat h4{font-size:13.5px;font-weight:700;margin-bottom:2px}
+.hero-feat p{font-size:11.5px;opacity:.75;line-height:1.35}
+
+/* KATEGORİLER */
+.cats{max-width:1360px;margin:0 auto;padding:32px 32px 0}
+.cats-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.cat-card{background:#fff;border-radius:8px;overflow:hidden;cursor:pointer;transition:.25s;border:1px solid transparent;padding-bottom:10px}
+.cat-card:hover{transform:translateY(-3px);border-color:var(--border);box-shadow:0 10px 24px rgba(15,42,74,.08)}
+.cat-img{width:100%;height:150px;background:#f4f6f9;overflow:hidden;border-radius:8px;display:flex;align-items:center;justify-content:center}
+.cat-img img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.cat-card:hover .cat-img img{transform:scale(1.06)}
+.cat-card h3{font-size:14.5px;font-weight:800;color:#0f2a4a;margin:14px 0 8px;padding-left:2px}
+.cat-card .link{font-size:12.5px;color:#4b5563;font-weight:500;display:flex;align-items:center;gap:8px;padding-left:2px;transition:.2s}
+.cat-card:hover .link{color:var(--accent)}
+.cat-card .link svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.2}
+
+/* TRUST */
+.trust{max-width:1360px;margin:24px auto 0;padding:0 32px}
+.trust-inner{background:#fafbfc;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:26px 40px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.trust-item{display:flex;align-items:center;gap:16px}
+.trust-icon{width:46px;height:46px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.trust-icon svg{width:34px;height:34px;stroke:#0f2a4a;fill:none;stroke-width:1.6}
+.trust-text h4{font-size:13.5px;font-weight:800;color:#0f2a4a;margin-bottom:2px}
+.trust-text p{font-size:11.5px;color:#7c8794;line-height:1.35}
+
+/* ÜRÜNLER */
+.products{max-width:1360px;margin:0 auto;padding:40px 32px 60px}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px}
+.section-head h2{font-size:22px;font-weight:900;color:#0f2a4a;letter-spacing:-.3px}
+.see-all{color:var(--accent);font-size:13px;font-weight:600;display:flex;align-items:center;gap:6px;cursor:pointer}
+.see-all svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.2}
+.products-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.product{background:#fff;border-radius:8px;overflow:hidden;transition:.25s;display:flex;flex-direction:column;cursor:pointer}
+.product:hover .product-img img{transform:scale(1.05)}
+.product-img{height:180px;background:#f4f6f9;position:relative;overflow:hidden;border-radius:8px;display:flex;align-items:center;justify-content:center}
+.product-img img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.new-badge{position:absolute;top:10px;left:10px;background:var(--primary);color:#fff;padding:4px 10px;border-radius:3px;font-size:10.5px;font-weight:700;letter-spacing:.3px;z-index:2}
+.product-info{padding:14px 4px 0}
+.product-info h3{font-size:13.5px;font-weight:700;color:#0f2a4a;margin-bottom:5px;line-height:1.35}
+.product-info .desc{font-size:11.5px;color:#7c8794;line-height:1.4}
+
+/* FOOTER */
+.footer{background:#0a1e36;color:#fff;padding:60px 0 0;margin-top:60px}
+.footer-inner{max-width:1360px;margin:0 auto;padding:0 32px}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:50px;padding-bottom:50px}
+.footer h4{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#f58220;margin-bottom:20px;font-weight:800}
+.footer p,.footer li{font-size:13px;opacity:.72;line-height:1.9;list-style:none}
+.footer .about p{margin-bottom:14px;opacity:.75}
+.footer .about .brand-row{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.footer .about .brand-row strong{font-size:22px;font-weight:900}
+.footer .about .brand-row strong span{color:#f58220}
+.footer li{cursor:pointer;transition:.2s}
+.footer li:hover{opacity:1;color:#f58220;padding-left:4px}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding:22px 0;text-align:center;font-size:12.5px;opacity:.55}
+
+/* TOAST */
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(80px);background:#0f2a4a;color:#fff;padding:14px 26px;border-radius:8px;font-size:13.5px;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.25);opacity:0;z-index:999;transition:.35s;pointer-events:none}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+
+/* RESPONSIVE */
+@media(max-width:1200px){
+.products-grid{grid-template-columns:repeat(4,1fr)}
+.cats-grid{grid-template-columns:repeat(3,1fr)}
+.hero-inner{grid-template-columns:1fr;gap:30px}
+.hero-features{display:none}
+.hero h1{font-size:38px}
+}
+@media(max-width:900px){
+.header-inner{flex-wrap:wrap;gap:15px}
+.search{order:3;max-width:100%;flex:1 0 100%}
+.contact{padding-left:0;border-left:none}
+.nav-links{overflow-x:auto;white-space:nowrap}
+.trust-inner{grid-template-columns:repeat(2,1fr);padding:20px}
+.products-grid{grid-template-columns:repeat(3,1fr)}
+.footer-top{grid-template-columns:1fr 1fr}
+.hero h1{font-size:30px}
+}
+@media(max-width:600px){
+.topbar-left>div:not(:first-child){display:none}
+.hero h1{font-size:24px}
+.cats-grid{grid-template-columns:repeat(2,1fr)}
+.products-grid{grid-template-columns:repeat(2,1fr)}
+.trust-inner{grid-template-columns:1fr}
+.footer-top{grid-template-columns:1fr}
+.nav-links a{padding:0 12px;font-size:12px}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <div><svg viewBox="0 0 24 24"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Türkiye Geneli Hızlı Teslimat</div>
+      <div><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Güvenli Alışveriş</div>
+      <div><svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>7/24 Destek</div>
+    </div>
+    <div class="topbar-right">
+      <a onclick="showToast('Giriş sayfası yakında')"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v2"/></svg>Giriş Yap / Üye Ol</a>
+      <div class="topbar-cart" onclick="showToast('Sepet yakında aktif')">
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+        <span class="count">0</span><span style="font-weight:600">0,00 TL</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <div class="logo" onclick="showHome()">
+      <div class="logo-mark">
+        <svg viewBox="0 0 64 64" fill="none">
+          <path d="M8 44 L32 14 L56 44 Z" stroke="#0f2a4a" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M20 44 L32 28 L44 44" fill="#1a3d68"/>
+          <path d="M4 52 Q16 46 32 52 T60 52" stroke="#3b82f6" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <div class="logo-brand">PUPA <span>YELKEN</span></div>
+        <div class="logo-tag">ZIMPARA • KEÇE • KUZU POSTU • PASTA & POLİSAJ</div>
+      </div>
+    </div>
+    <div class="search">
+      <input type="text" id="searchInput" placeholder="Aradığınız ürün, kategori veya marka..." onkeyup="handleSearch(event)">
+      <button onclick="performSearch()"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
+    </div>
+    <div class="contact">
+      <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+      <div class="contact-text">
+        <small>Bize Ulaşın</small>
+        <strong>+90 533 123 45 67</strong>
+        <span>Hafta içi 08:30 - 18:30</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-cat"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>Tüm Kategoriler</div>
+    <div class="nav-links" id="navLinks">
+      <a data-cat="all" class="active" onclick="filterCat('all',this)">Ana Sayfa</a>
+      <a data-cat="kuzu-postu" onclick="filterCat('kuzu-postu',this)">Kuzu Postu</a>
+      <a data-cat="kece" onclick="filterCat('kece',this)">Keçe</a>
+      <a data-cat="zimpara" onclick="filterCat('zimpara',this)">Zımpara <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
+      <a data-cat="pasta" onclick="filterCat('pasta',this)">Pasta & Polisaj <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
+      <a onclick="showToast('Aksesuarlar yakında')">Aksesuarlar <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
+      <a onclick="showToast('Hakkımızda sayfası')">Hakkımızda</a>
+      <a onclick="showToast('İletişim sayfası')">İletişim</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="heroSection">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-tag">PROFESYONEL POLİSAJ VE ZIMPARA ÇÖZÜMLERİ</div>
+      <h1>Kalite, Performans<br>ve <span>Doğru Ürün</span></h1>
+      <p>Kuzu postu, keçe, zımpara ve pasta ürünlerinde sektörün güvenilir markası PUPA YELKEN ile işlerinizi bir adım öne taşıyın.</p>
+      <button class="hero-btn" onclick="document.getElementById('productsSection').scrollIntoView({behavior:'smooth'})">
+        Alışverişe Başla
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </div>
+    <div class="hero-features">
+      <div class="hero-feat"><div class="hero-feat-icon"><svg viewBox="0 0 24 24"><path d="M12 2 L15 9 L22 9.5 L17 14 L18.5 21 L12 17.5 L5.5 21 L7 14 L2 9.5 L9 9 Z"/></svg></div><div><h4>Profesyonel Kalite</h4><p>En iyi markalar, en kaliteli ürünler</p></div></div>
+      <div class="hero-feat"><div class="hero-feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><div><h4>Geniş Ürün Yelpazesi</h4><p>Tüm ihtiyaçlarınız için tek adres</p></div></div>
+      <div class="hero-feat"><div class="hero-feat-icon"><svg viewBox="0 0 24 24"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div><h4>Hızlı Teslimat</h4><p>Türkiye geneli güvenli kargo</p></div></div>
+      <div class="hero-feat"><div class="hero-feat-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div><h4>Güvenli Alışveriş</h4><p>SSL sertifikalı altyapı</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- KATEGORİLER -->
+<section class="cats" id="catsSection">
+  <div class="cats-grid" id="catsGrid"></div>
+</section>
+
+<!-- TRUST -->
+<section class="trust">
+  <div class="trust-inner">
+    <div class="trust-item"><div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div class="trust-text"><h4>Ücretsiz Kargo</h4><p>1500 TL üzeri siparişlerde</p></div></div>
+    <div class="trust-item"><div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div><div class="trust-text"><h4>Güvenli Ödeme</h4><p>SSL sertifikalı altyapı</p></div></div>
+    <div class="trust-item"><div class="trust-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div><div class="trust-text"><h4>Kolay İade</h4><p>14 gün içinde iade imkanı</p></div></div>
+    <div class="trust-item"><div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></div><div class="trust-text"><h4>Müşteri Desteği</h4><p>7/24 profesyonel destek</p></div></div>
+  </div>
+</section>
+
+<!-- ÜRÜNLER -->
+<section class="products" id="productsSection">
+  <div class="section-head">
+    <h2 id="sectionTitle">Yeni Gelen Ürünler</h2>
+    <div class="see-all" onclick="filterCat('all')">Tümünü Gör <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+  </div>
+  <div class="products-grid" id="productsGrid"></div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="about">
+        <div class="brand-row">
+          <svg viewBox="0 0 64 64" width="40" height="40" fill="none">
+            <path d="M8 44 L32 14 L56 44 Z" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M20 44 L32 28 L44 44" fill="#fff"/>
+            <path d="M4 52 Q16 46 32 52 T60 52" stroke="#3b82f6" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          </svg>
+          <strong>PUPA <span>YELKEN</span></strong>
+        </div>
+        <p>Profesyonel oto bakım, polisaj ve zımpara malzemelerinde 15 yıllık tecrübe.</p>
+        <p>📍 İstanbul, Türkiye</p>
+        <p>📞 +90 533 123 45 67</p>
+      </div>
+      <div><h4>Kategoriler</h4><ul><li onclick="filterCat('kuzu-postu')">Kuzu Postu</li><li onclick="filterCat('kece')">Keçe</li><li onclick="filterCat('zimpara')">Zımpara</li><li onclick="filterCat('pasta')">Pasta & Polisaj</li></ul></div>
+      <div><h4>Kurumsal</h4><ul><li>Hakkımızda</li><li>İletişim</li><li>Kargo & Teslimat</li><li>İade & Değişim</li></ul></div>
+      <div><h4>Müşteri Hizmetleri</h4><ul><li>Sipariş Takibi</li><li>SSS</li><li>Toplu Sipariş</li><li>Bayilik</li></ul></div>
+    </div>
+    <div class="footer-bottom">© 2025 PUPA YELKEN - Tüm hakları saklıdır.</div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================
+   ZIMPARA GÖRSELİ
+   Senin gönderdiğin yeşil 6 delikli zımpara
+   
+   ⚠️ ÖNEMLİ: Görseli bilgisayarına indir,
+   adını "zimpara.jpg" yap ve index.html
+   dosyanın yanına koy.
+============================================ */
+const GREEN_SAND = "zimpara.jpg";
+
+/* ============================================
+   KATEGORİLER
+============================================ */
+const categories=[
+  {slug:"kuzu-postu",name:"Kuzu Postu",img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80"},
+  {slug:"kece",name:"Keçe",img:"https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&q=80"},
+  {slug:"zimpara",name:"Zımpara",img:GREEN_SAND},
+  {slug:"pasta",name:"Pasta & Polisaj",img:"https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=400&q=80"},
+  {slug:"flap",name:"Flap Disk",img:"https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&q=80"},
+  {slug:"aksesuar",name:"Aksesuarlar",img:"https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=400&q=80"}
+];
+
+/* ============================================
+   ÜRÜNLER
+============================================ */
+const products=[
+  // ZIMPARA - 6 DELİKLİ YEŞİL VELCRO (40P → 2000P)
+  {id:1,name:"Yeşil Velcro Zımpara 40P",desc:"Kaba zımparalama - 6 delikli",cat:"zimpara",img:GREEN_SAND},
+  {id:2,name:"Yeşil Velcro Zımpara 60P",desc:"Kaba yüzey hazırlığı - 6 delikli",cat:"zimpara",img:GREEN_SAND},
+  {id:3,name:"Yeşil Velcro Zımpara 80P",desc:"Ahşap ön işleme - 6 delikli",cat:"zimpara",img:GREEN_SAND},
+  {id:4,name:"Yeşil Velcro Zımpara 100P",desc:"Metal yüzey düzeltme - 6 delikli",cat:"zimpara",img:GREEN_SAND},
+  {id:5,name:"Yeşil Velcro Zımpara 120P",desc:"Boya öncesi hazırlık - 6 delikli",cat:"zimpara",img:GREEN_SAND},
+  {id:6,name:"Yeşil Velcro Zımpara 150P",desc:"Pürüz giderme - 6 delikli",cat:"zimpara",img:GREEN_SAND},
+  {id:7,name:"Yeşil Velcro Zımpara 180P",desc:"İnce yüzey düzeltme - 6 delikli",cat:"zimpara",img:GREEN_SAND},
+  {id:8,name:"Yeşil Velcro Zımpara 220P",desc:"Astar zımparalama - 6 delikli",cat:"zimpara",img:GREEN_SAND},
+  {id:9,name:"Yeşil Velcro Zımpara 240P",desc:"Vernik zımparalama - 6 delikli",cat:"zimpara",img:GREEN_SAND},
+  {id:10,name:"Yeşil Velcro Zımpara 320P",desc:"Boya arası zımparalama - 6 delikli",cat:"zimpara",img:GREEN_SAND},
+  {id:11,name:"Yeşil Velcro Zımpara 400P",desc:"Yüzey düzeltme - 6 delikli",cat:"zimpara",img:GREEN_SAND},
+  {id:12,name:"Yeşil Velcro Zımpara 600P",desc:"Boya finiş hazırlığı - 6 delikli",cat:"zimpara",img:GREEN_SAND},
+  {id:13,name:"Yeşil Velcro Zımpara 800P",desc:"Çok ince zımparalama - 6 delikli",cat:"zimpara",img:GREEN_SAND},
+  {id:14,name:"Yeşil Velcro Zımpara 1000P",desc:"Oto boya yüzey işleme - 6 delikli",cat:"zimpara",img:GREEN_SAND},
+  {id:15,name:"Yeşil Velcro Zımpara 1200P",desc:"Lake boya çizik giderme - 6 delikli",cat:"zimpara",img:GREEN_SAND},
+  {id:16,name:"Yeşil Velcro Zımpara 1500P",desc:"Yüksek parlaklık finiş - 6 delikli",cat:"zimpara",img:GREEN_SAND},
+  {id:17,name:"Yeşil Velcro Zımpara 2000P",desc:"Son geçiş - ayna parlaklık - 6 delikli",cat:"zimpara",img:GREEN_SAND},
+  {id:18,name:"Yeşil Velcro Zımpara Seti 40-2000P",desc:"17 parça tam set - 6 delikli",cat:"zimpara",img:GREEN_SAND},
+
+  // KUZU POSTU
+  {id:30,name:"Kuzu Postu 150 mm",desc:"Polisaj için ideal kalite",cat:"kuzu-postu",img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80"},
+  {id:31,name:"Kuzu Postu 180 mm",desc:"Profesyonel seri",cat:"kuzu-postu",img:"https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=400&q=80"},
+  {id:32,name:"Kuzu Postu 230 mm",desc:"Geniş yüzey polisajı",cat:"kuzu-postu",img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80&sat=-10"},
+
+  // KEÇE
+  {id:40,name:"Sert Keçe 150 mm",desc:"Ağır çizik giderme",cat:"kece",img:"https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&q=80"},
+  {id:41,name:"Yumuşak Keçe 180 mm",desc:"Son kat parlatma",cat:"kece",img:"https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&q=80"},
+  {id:42,name:"Keçe Disk 125 mm",desc:"Yüksek yoğunluklu keçe",cat:"kece",img:"https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&q=80&sat=-20"},
+
+  // PASTA & POLİSAJ
+  {id:50,name:"Pasta Seti",desc:"Profesyonel sonuç",cat:"pasta",img:"https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=400&q=80"},
+  {id:51,name:"Hare Giderici Pasta 500ml",desc:"İnce çizik giderici",cat:"pasta",img:"https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=400&q=80"},
+  {id:52,name:"Seramik Kaplama Cila",desc:"9H sertlik koruma",cat:"pasta",img:"https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=400&q=80&sat=-10"},
+
+  // FLAP DİSK
+  {id:60,name:"Flap Disk 115 mm",desc:"Metal yüzeyler için",cat:"flap",img:"https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&q=80"},
+  {id:61,name:"Flap Disk 125 mm",desc:"Paslanmaz çelik için",cat:"flap",img:"https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&q=80&sat=-15"},
+
+  // AKSESUAR
+  {id:70,name:"Polisaj Makinesi 1200W",desc:"Profesyonel seri",cat:"aksesuar",img:"https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=400&q=80"},
+  {id:71,name:"Polisaj Pedi Seti",desc:"5 parça set",cat:"aksesuar",img:"https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=400&q=80&sat=-15"}
+];
+
+/* ============================================
+   RENDER
+============================================ */
+function renderCategories(){
+  document.getElementById('catsGrid').innerHTML=categories.map(c=>`
+    <div class="cat-card" onclick="filterCat('${c.slug}')">
+      <div class="cat-img"><img src="${c.img}" alt="${c.name}" loading="lazy"></div>
+      <h3>${c.name}</h3>
+      <div class="link">Ürünleri İncele <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    </div>
+  `).join('');
+}
+
+function renderProducts(list){
+  const grid=document.getElementById('productsGrid');
+  if(!list.length){
+    grid.innerHTML='<p style="grid-column:1/-1;text-align:center;padding:40px;color:#999;">Ürün bulunamadı.</p>';
+    return;
+  }
+  grid.innerHTML=list.map(p=>`
+    <div class="product">
+      <div class="product-img">
+        <span class="new-badge">Yeni</span>
+        <img src="${p.img}" alt="${p.name}" loading="lazy">
+      </div>
+      <div class="product-info">
+        <h3>${p.name}</h3>
+        <div class="desc">${p.desc}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ============================================
+   FİLTRELEME
+============================================ */
+function filterCat(cat,el){
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
+  if(el)el.classList.add('active');
+  const titles={
+    all:'Yeni Gelen Ürünler',
+    'kuzu-postu':'Kuzu Postu Ürünleri',
+    kece:'Keçe Ürünleri',
+    zimpara:'Yeşil Velcro Zımpara Ürünleri (40P - 2000P)',
+    pasta:'Pasta & Polisaj Ürünleri',
+    flap:'Flap Disk Ürünleri',
+    aksesuar:'Aksesuar Ürünleri'
+  };
+  document.getElementById('sectionTitle').textContent=titles[cat]||'Ürünler';
+  let filtered;
+  if(cat==='all') filtered=products.slice(0,12);
+  else filtered=products.filter(p=>p.cat===cat);
+  renderProducts(filtered);
+  document.getElementById('productsSection').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function showHome(){
+  document.getElementById('heroSection').scrollIntoView({behavior:'smooth'});
+  filterCat('all');
+}
+
+/* ============================================
+   ARAMA
+============================================ */
+function handleSearch(e){if(e.key==='Enter')performSearch();}
+
+function performSearch(){
+  const q=document.getElementById('searchInput').value.toLowerCase().trim();
+  if(!q){filterCat('all');return;}
+  const results=products.filter(p=>p.name.toLowerCase().includes(q)||p.desc.toLowerCase().includes(q));
+  document.getElementById('sectionTitle').textContent=`"${q}" için ${results.length} sonuç`;
+  renderProducts(results);
+  document.getElementById('productsSection').scrollIntoView({behavior:'smooth'});
+}
+
+/* ============================================
+   TOAST
+============================================ */
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.className='toast';
+  setTimeout(()=>t.classList.add('show'),10);
+  setTimeout(()=>t.classList.remove('show'),2500);
+}
+
+/* ============================================
+   BAŞLAT
+============================================ */
+renderCategories();
+renderProducts(products.slice(0,12));
+</script>
+</body>
+</html>
