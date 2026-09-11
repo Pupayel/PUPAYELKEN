@@ -119,6 +119,7 @@ body{background:#fff;color:#0f2a4a}
 .product-info{padding:14px 4px 0}
 .product-info h3{font-size:13.5px;font-weight:700;color:#0f2a4a;margin-bottom:5px;line-height:1.35}
 .product-info .desc{font-size:11.5px;color:#7c8794;line-height:1.4}
+.product-info .price{font-size:16px;font-weight:800;color:#f58220;margin-top:10px;letter-spacing:-.2px}
 
 /* FOOTER */
 .footer{background:#0a1e36;color:#fff;padding:60px 0 0;margin-top:60px}
@@ -169,7 +170,6 @@ body{background:#fff;color:#0f2a4a}
 </head>
 <body>
 
-<!-- TOP BAR -->
 <div class="topbar">
   <div class="topbar-inner">
     <div class="topbar-left">
@@ -187,7 +187,6 @@ body{background:#fff;color:#0f2a4a}
   </div>
 </div>
 
-<!-- HEADER -->
 <header class="header">
   <div class="header-inner">
     <div class="logo" onclick="showHome()">
@@ -218,7 +217,6 @@ body{background:#fff;color:#0f2a4a}
   </div>
 </header>
 
-<!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
     <div class="nav-cat"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>Tüm Kategoriler</div>
@@ -235,7 +233,6 @@ body{background:#fff;color:#0f2a4a}
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="heroSection">
   <div class="hero-bg"></div>
   <div class="hero-inner">
@@ -257,12 +254,10 @@ body{background:#fff;color:#0f2a4a}
   </div>
 </section>
 
-<!-- KATEGORİLER -->
 <section class="cats" id="catsSection">
   <div class="cats-grid" id="catsGrid"></div>
 </section>
 
-<!-- TRUST -->
 <section class="trust">
   <div class="trust-inner">
     <div class="trust-item"><div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div class="trust-text"><h4>Ücretsiz Kargo</h4><p>1500 TL üzeri siparişlerde</p></div></div>
@@ -272,7 +267,6 @@ body{background:#fff;color:#0f2a4a}
   </div>
 </section>
 
-<!-- ÜRÜNLER -->
 <section class="products" id="productsSection">
   <div class="section-head">
     <h2 id="sectionTitle">Yeni Gelen Ürünler</h2>
@@ -281,7 +275,6 @@ body{background:#fff;color:#0f2a4a}
   <div class="products-grid" id="productsGrid"></div>
 </section>
 
-<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-top">
@@ -312,10 +305,7 @@ body{background:#fff;color:#0f2a4a}
 /* ============================================
    GÖRSEL SABİTLERİ
 ============================================ */
-// Zımpara görseli (senin yüklediğin yeşil zımpara)
 const GREEN_SAND = "zimpara.jpg";
-
-// Kuzu postu görseli (senin yüklediğin sarı kuzu postu)
 const KUZU_POSTU = "kuzu-postu.jpg";
 
 /* ============================================
@@ -335,47 +325,47 @@ const categories=[
 ============================================ */
 const products=[
   // ZIMPARA - 6 DELİKLİ YEŞİL VELCRO (40P → 2000P)
-  {id:1,name:"Yeşil Velcro Zımpara 40P",desc:"Kaba zımparalama - 6 delikli",cat:"zimpara",img:GREEN_SAND},
-  {id:2,name:"Yeşil Velcro Zımpara 60P",desc:"Kaba yüzey hazırlığı - 6 delikli",cat:"zimpara",img:GREEN_SAND},
-  {id:3,name:"Yeşil Velcro Zımpara 80P",desc:"Ahşap ön işleme - 6 delikli",cat:"zimpara",img:GREEN_SAND},
-  {id:4,name:"Yeşil Velcro Zımpara 100P",desc:"Metal yüzey düzeltme - 6 delikli",cat:"zimpara",img:GREEN_SAND},
-  {id:5,name:"Yeşil Velcro Zımpara 120P",desc:"Boya öncesi hazırlık - 6 delikli",cat:"zimpara",img:GREEN_SAND},
-  {id:6,name:"Yeşil Velcro Zımpara 150P",desc:"Pürüz giderme - 6 delikli",cat:"zimpara",img:GREEN_SAND},
-  {id:7,name:"Yeşil Velcro Zımpara 180P",desc:"İnce yüzey düzeltme - 6 delikli",cat:"zimpara",img:GREEN_SAND},
-  {id:8,name:"Yeşil Velcro Zımpara 220P",desc:"Astar zımparalama - 6 delikli",cat:"zimpara",img:GREEN_SAND},
-  {id:9,name:"Yeşil Velcro Zımpara 240P",desc:"Vernik zımparalama - 6 delikli",cat:"zimpara",img:GREEN_SAND},
-  {id:10,name:"Yeşil Velcro Zımpara 320P",desc:"Boya arası zımparalama - 6 delikli",cat:"zimpara",img:GREEN_SAND},
-  {id:11,name:"Yeşil Velcro Zımpara 400P",desc:"Yüzey düzeltme - 6 delikli",cat:"zimpara",img:GREEN_SAND},
-  {id:12,name:"Yeşil Velcro Zımpara 600P",desc:"Boya finiş hazırlığı - 6 delikli",cat:"zimpara",img:GREEN_SAND},
-  {id:13,name:"Yeşil Velcro Zımpara 800P",desc:"Çok ince zımparalama - 6 delikli",cat:"zimpara",img:GREEN_SAND},
-  {id:14,name:"Yeşil Velcro Zımpara 1000P",desc:"Oto boya yüzey işleme - 6 delikli",cat:"zimpara",img:GREEN_SAND},
-  {id:15,name:"Yeşil Velcro Zımpara 1200P",desc:"Lake boya çizik giderme - 6 delikli",cat:"zimpara",img:GREEN_SAND},
-  {id:16,name:"Yeşil Velcro Zımpara 1500P",desc:"Yüksek parlaklık finiş - 6 delikli",cat:"zimpara",img:GREEN_SAND},
-  {id:17,name:"Yeşil Velcro Zımpara 2000P",desc:"Son geçiş - ayna parlaklık - 6 delikli",cat:"zimpara",img:GREEN_SAND},
-  {id:18,name:"Yeşil Velcro Zımpara Seti 40-2000P",desc:"17 parça tam set - 6 delikli",cat:"zimpara",img:GREEN_SAND},
+  {id:1,name:"Yeşil Velcro Zımpara 40P",desc:"Kaba zımparalama - 6 delikli",cat:"zimpara",price:28,img:GREEN_SAND},
+  {id:2,name:"Yeşil Velcro Zımpara 60P",desc:"Kaba yüzey hazırlığı - 6 delikli",cat:"zimpara",price:28,img:GREEN_SAND},
+  {id:3,name:"Yeşil Velcro Zımpara 80P",desc:"Ahşap ön işleme - 6 delikli",cat:"zimpara",price:30,img:GREEN_SAND},
+  {id:4,name:"Yeşil Velcro Zımpara 100P",desc:"Metal yüzey düzeltme - 6 delikli",cat:"zimpara",price:30,img:GREEN_SAND},
+  {id:5,name:"Yeşil Velcro Zımpara 120P",desc:"Boya öncesi hazırlık - 6 delikli",cat:"zimpara",price:32,img:GREEN_SAND},
+  {id:6,name:"Yeşil Velcro Zımpara 150P",desc:"Pürüz giderme - 6 delikli",cat:"zimpara",price:32,img:GREEN_SAND},
+  {id:7,name:"Yeşil Velcro Zımpara 180P",desc:"İnce yüzey düzeltme - 6 delikli",cat:"zimpara",price:34,img:GREEN_SAND},
+  {id:8,name:"Yeşil Velcro Zımpara 220P",desc:"Astar zımparalama - 6 delikli",cat:"zimpara",price:34,img:GREEN_SAND},
+  {id:9,name:"Yeşil Velcro Zımpara 240P",desc:"Vernik zımparalama - 6 delikli",cat:"zimpara",price:36,img:GREEN_SAND},
+  {id:10,name:"Yeşil Velcro Zımpara 320P",desc:"Boya arası zımparalama - 6 delikli",cat:"zimpara",price:38,img:GREEN_SAND},
+  {id:11,name:"Yeşil Velcro Zımpara 400P",desc:"Yüzey düzeltme - 6 delikli",cat:"zimpara",price:38,img:GREEN_SAND},
+  {id:12,name:"Yeşil Velcro Zımpara 600P",desc:"Boya finiş hazırlığı - 6 delikli",cat:"zimpara",price:40,img:GREEN_SAND},
+  {id:13,name:"Yeşil Velcro Zımpara 800P",desc:"Çok ince zımparalama - 6 delikli",cat:"zimpara",price:42,img:GREEN_SAND},
+  {id:14,name:"Yeşil Velcro Zımpara 1000P",desc:"Oto boya yüzey işleme - 6 delikli",cat:"zimpara",price:42,img:GREEN_SAND},
+  {id:15,name:"Yeşil Velcro Zımpara 1200P",desc:"Lake boya çizik giderme - 6 delikli",cat:"zimpara",price:44,img:GREEN_SAND},
+  {id:16,name:"Yeşil Velcro Zımpara 1500P",desc:"Yüksek parlaklık finiş - 6 delikli",cat:"zimpara",price:44,img:GREEN_SAND},
+  {id:17,name:"Yeşil Velcro Zımpara 2000P",desc:"Son geçiş - ayna parlaklık - 6 delikli",cat:"zimpara",price:46,img:GREEN_SAND},
+  {id:18,name:"Yeşil Velcro Zımpara Seti 40-2000P",desc:"17 parça tam set - 6 delikli",cat:"zimpara",price:520,img:GREEN_SAND},
 
-  // KUZU POSTU (hepsi sarı kuzu postu görseli ile)
+  // KUZU POSTU
   {id:30,name:"Kuzu Postu Polisaj Keçesi 150 mm",desc:"Polisaj için ideal kalite",cat:"kuzu-postu",price:275,img:KUZU_POSTU},
   {id:31,name:"Kuzu Postu Polisaj Keçesi 180 mm",desc:"Profesyonel seri",cat:"kuzu-postu",price:325,img:KUZU_POSTU},
   {id:32,name:"Kuzu Postu Polisaj Keçesi 230 mm",desc:"Geniş yüzey polisajı",cat:"kuzu-postu",price:420,img:KUZU_POSTU},
-  
+
   // KEÇE
-  {id:40,name:"Sert Keçe 150 mm",desc:"Ağır çizik giderme",cat:"kece",img:"https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&q=80"},
-  {id:41,name:"Yumuşak Keçe 180 mm",desc:"Son kat parlatma",cat:"kece",img:"https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&q=80"},
-  {id:42,name:"Keçe Disk 125 mm",desc:"Yüksek yoğunluklu keçe",cat:"kece",img:"https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&q=80&sat=-20"},
+  {id:40,name:"Sert Keçe 150 mm",desc:"Ağır çizik giderme",cat:"kece",price:89,img:"https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&q=80"},
+  {id:41,name:"Yumuşak Keçe 180 mm",desc:"Son kat parlatma",cat:"kece",price:110,img:"https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&q=80"},
+  {id:42,name:"Keçe Disk 125 mm",desc:"Yüksek yoğunluklu keçe",cat:"kece",price:75,img:"https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&q=80&sat=-20"},
 
   // PASTA & POLİSAJ
-  {id:50,name:"Pasta Seti",desc:"Profesyonel sonuç",cat:"pasta",img:"https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=400&q=80"},
-  {id:51,name:"Hare Giderici Pasta 500ml",desc:"İnce çizik giderici",cat:"pasta",img:"https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=400&q=80"},
-  {id:52,name:"Seramik Kaplama Cila",desc:"9H sertlik koruma",cat:"pasta",img:"https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=400&q=80&sat=-10"},
+  {id:50,name:"Pasta Seti",desc:"Profesyonel sonuç",cat:"pasta",price:420,img:"https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=400&q=80"},
+  {id:51,name:"Hare Giderici Pasta 500ml",desc:"İnce çizik giderici",cat:"pasta",price:175,img:"https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=400&q=80"},
+  {id:52,name:"Seramik Kaplama Cila",desc:"9H sertlik koruma",cat:"pasta",price:420,img:"https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=400&q=80&sat=-10"},
 
   // FLAP DİSK
-  {id:60,name:"Flap Disk 115 mm",desc:"Metal yüzeyler için",cat:"flap",img:"https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&q=80"},
-  {id:61,name:"Flap Disk 125 mm",desc:"Paslanmaz çelik için",cat:"flap",img:"https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&q=80&sat=-15"},
+  {id:60,name:"Flap Disk 115 mm",desc:"Metal yüzeyler için",cat:"flap",price:135,img:"https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&q=80"},
+  {id:61,name:"Flap Disk 125 mm",desc:"Paslanmaz çelik için",cat:"flap",price:150,img:"https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&q=80&sat=-15"},
 
   // AKSESUAR
-  {id:70,name:"Polisaj Makinesi 1200W",desc:"Profesyonel seri",cat:"aksesuar",img:"https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=400&q=80"},
-  {id:71,name:"Polisaj Pedi Seti",desc:"5 parça set",cat:"aksesuar",img:"https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=400&q=80&sat=-15"}
+  {id:70,name:"Polisaj Makinesi 1200W",desc:"Profesyonel seri",cat:"aksesuar",price:1890,img:"https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=400&q=80"},
+  {id:71,name:"Polisaj Pedi Seti",desc:"5 parça set",cat:"aksesuar",price:320,img:"https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=400&q=80&sat=-15"}
 ];
 
 /* ============================================
@@ -406,6 +396,7 @@ function renderProducts(list){
       <div class="product-info">
         <h3>${p.name}</h3>
         <div class="desc">${p.desc}</div>
+        ${p.price ? `<div class="price">${p.price.toLocaleString('tr-TR')} TL</div>` : ''}
       </div>
     </div>
   `).join('');
