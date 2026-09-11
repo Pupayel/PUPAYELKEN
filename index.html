@@ -361,6 +361,7 @@ body{background:#fff;color:#0f2a4a}
 const GREEN_SAND = "zimpara.jpg";
 const GOLD_SAND = "gold-zımpara.jpeg";
 const KUZU_POSTU = "kuzu-postu.jpg";
+const BEYAZ_KUZU = "beyazkuzu-kece.jpg";
 
 /* ============================================
    KATEGORİLER
@@ -382,13 +383,19 @@ const products=[
   {id:30,name:"Kuzu Postu Polisaj Keçesi 150 mm",desc:"Marine grubu - Deniz araçları için",cat:"polisaj-marine",price:275,img:KUZU_POSTU},
   {id:31,name:"Kuzu Postu Polisaj Keçesi 180 mm",desc:"Marine grubu - Profesyonel seri",cat:"polisaj-marine",price:325,img:KUZU_POSTU},
   {id:32,name:"Kuzu Postu Polisaj Keçesi 230 mm",desc:"Marine grubu - Geniş yüzey polisajı",cat:"polisaj-marine",price:420,img:KUZU_POSTU},
+  {id:36,name:"Beyaz Kuzu Postu Polisaj Keçesi 150 mm",desc:"Marine grubu - Beyaz keçe",cat:"polisaj-marine",price:275,img:BEYAZ_KUZU},
+  {id:37,name:"Beyaz Kuzu Postu Polisaj Keçesi 180 mm",desc:"Marine grubu - Beyaz keçe",cat:"polisaj-marine",price:325,img:BEYAZ_KUZU},
+  {id:38,name:"Beyaz Kuzu Postu Polisaj Keçesi 230 mm",desc:"Marine grubu - Beyaz keçe",cat:"polisaj-marine",price:420,img:BEYAZ_KUZU},
 
   // POLİSAJ KEÇE - OTO GRUBU
   {id:33,name:"Kuzu Postu Polisaj Keçesi 150 mm",desc:"Oto grubu - Araç polisajı için",cat:"polisaj-oto",price:275,img:KUZU_POSTU},
   {id:34,name:"Kuzu Postu Polisaj Keçesi 180 mm",desc:"Oto grubu - Profesyonel seri",cat:"polisaj-oto",price:325,img:KUZU_POSTU},
   {id:35,name:"Kuzu Postu Polisaj Keçesi 230 mm",desc:"Oto grubu - Geniş yüzey polisajı",cat:"polisaj-oto",price:420,img:KUZU_POSTU},
+  {id:39,name:"Beyaz Kuzu Postu Polisaj Keçesi 150 mm",desc:"Oto grubu - Beyaz keçe",cat:"polisaj-oto",price:275,img:BEYAZ_KUZU},
+  {id:43,name:"Beyaz Kuzu Postu Polisaj Keçesi 180 mm",desc:"Oto grubu - Beyaz keçe",cat:"polisaj-oto",price:325,img:BEYAZ_KUZU},
+  {id:44,name:"Beyaz Kuzu Postu Polisaj Keçesi 230 mm",desc:"Oto grubu - Beyaz keçe",cat:"polisaj-oto",price:420,img:BEYAZ_KUZU},
 
-  // ZIMPARA - YEŞİL CIRT & VELCRO (40P → 2000P)
+  // ZIMPARA - YEŞİL CIRT & VELCRO
   {id:1,name:"Yeşil Cırt & Velcro 40P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-yesil",price:18,kdv:true,img:GREEN_SAND},
   {id:2,name:"Yeşil Cırt & Velcro 60P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-yesil",price:18,kdv:true,img:GREEN_SAND},
   {id:3,name:"Yeşil Cırt & Velcro 80P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-yesil",price:16.5,kdv:true,img:GREEN_SAND},
@@ -408,7 +415,7 @@ const products=[
   {id:17,name:"Yeşil Cırt & Velcro 2000P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-yesil",price:18,kdv:true,img:GREEN_SAND},
   {id:18,name:"Yeşil Cırt & Velcro Seti 40-2000P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-yesil",price:520,kdv:true,img:GREEN_SAND},
 
-  // ZIMPARA - GOLD CIRT & VELCRO (40P → 800P)
+  // ZIMPARA - GOLD CIRT & VELCRO
   {id:101,name:"Gold Cırt & Velcro 40P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-gold",price:18,kdv:true,img:GOLD_SAND},
   {id:102,name:"Gold Cırt & Velcro 60P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-gold",price:18,kdv:true,img:GOLD_SAND},
   {id:103,name:"Gold Cırt & Velcro 80P",desc:"Paket fiyatıdır. Paketler 100 ve katıdır. + KDV'dir.",cat:"zimpara-gold",price:16.5,kdv:true,img:GOLD_SAND},
@@ -497,7 +504,6 @@ function filterCat(cat,el){
   };
   document.getElementById('sectionTitle').textContent=titles[cat]||'Ürünler';
 
-  // Filtre butonları - sadece polisaj grubu için
   const filterBox=document.getElementById('filterButtons');
   if(cat==='polisaj-marine'||cat==='polisaj-oto'||cat==='polisaj-inox'||cat==='kuzu-postu'){
     filterBox.style.display='flex';
